@@ -5,10 +5,11 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
+import org.apache.maven.model.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,12 +26,26 @@ public class OrderController {
 	@Resource(name = "goodsService")
 	GoodsService goodsService;
 
+	
+	
+
+//	결제 페이지
 	@RequestMapping(value = "/order/PayPage")
 	@ResponseBody
-	public ModelAndView orderPayPage(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView orderPayPage( Model model,CommandMap commandMap, HttpServletRequest request ,String GOODS_OP2,String GOODS_OP3,String GOODS_OP4 ) throws Exception {
 		ModelAndView mv = new ModelAndView("userPayPage");
 		List<Map<String, Object>> orderPayPage = orderService.orderPayPage(commandMap.getMap());
 		List<Map<String, Object>> orderMember = orderService.orderMember(commandMap.getMap());
+		
+	// 보낸 값 받아서 저장하고 
+		String op2 = request.getParameter("GOODS_OP2");
+		String op3 = request.getParameter("GOODS_OP3");
+		String op4 = request.getParameter("GOODS_OP4");
+	
+	// jsp로 뿌리기
+		mv.addObject("op4", op4);
+		mv.addObject("op3", op3);
+		mv.addObject("op2", op2);
 		mv.addObject("orderPayPage", orderPayPage);
 		mv.addObject("orderMember", orderMember);
 		return mv;

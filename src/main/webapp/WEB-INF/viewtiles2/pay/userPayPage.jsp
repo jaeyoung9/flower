@@ -67,26 +67,30 @@ margin: auto;
 <div>
 <ul>
 <li class="paypageli">${orderPage.GOODS_TITLE}</li><br>
-<li class="paypageli2">${orderPage.GOODS_OP2}</li>
-<li class="paypageli2">${orderPage.GOODS_OP3}</li>
-<li class="paypageli2">${orderPage.GOODS_OP4}</li>
 <li class="paypageli3"><fmt:formatNumber value="${orderPage.GOODS_PRICE}" pattern="#,###"/>원</li>
-
 </ul>
 </div>
 		<input type="hidden" class="int" id="GOODS_INDEX" value="${orderPage.GOODS_INDEX}">
 		<input type="hidden" class="int" id="GOODS_TITLE" value="${orderPage.GOODS_TITLE}">
 		<input type="hidden" class="int" id="GOODS_PRICE" value="${orderPage.GOODS_PRICE}">
 		<input type="hidden" class="int" id="GOODS_OP1" value="${orderPage.GOODS_OP1}">
-		<input type="hidden" class="int" id="GOODS_OP2" value="${orderPage.GOODS_OP2}">
-		<input type="hidden" class="int" id="GOODS_OP3" value="${orderPage.GOODS_OP3}">
-		<input type="hidden" class="int" id="GOODS_OP4" value="${orderPage.GOODS_OP4}">
-		<br>
-
-
-
 	</c:forEach>
 </div>	
+<!-- OP1 -->
+<div class="paypageli3">
+<c:forEach items="${op2}" var="op2">
+${op2}
+<input type="hidden" class="int" id="GOODS_OP2" value="${op2}"><br>
+</c:forEach>
+<c:forEach items="${op3}" var="op3">
+${op3}
+<input type="hidden" class="int" id="GOODS_OP3" value="${op3}"><br>
+</c:forEach>
+<c:forEach items="${op4}" var="op4">
+${op4} 
+<input type="hidden" class="int" id="GOODS_OP4" value="${op4}">
+</c:forEach>
+</div>
 </div>
 
 <div class="userpaypage2">
@@ -183,7 +187,20 @@ margin: auto;
 	}
 </script>
 
+<script>
+$(document).ready(function() {
+	fn_goodsorder(1); //최초에 화면이 호출되면 1페이지의 내용을 조회하는 것을 의미.
+	
+	function fn_goodsorder(pageNo) { //파라미터로 pageNo를 받는다. (pageNo는 호출하고자 하는 페이지 번호를 의미)
+		var comAjax = new ComAjax(); //coomon.js파일에 ComAjax를 사용.
+		comAjax.setUrl("<c:url value='/order/PayPage/json'/>");
+		comAjax.setCallback("fn_goodsoderCallback"); //ajax요청이 완료된 후 호출될 함수의 이름을 지정
+		comAjax.addParam("GOODS_INDEX", GOODS_INDEX); //현재 페이지 번호
+		comAjax.addParam("USER_ID", USER_ID); //한페이지에 보여줄 행(데이터)의 수
+		comAjax.ajax();
+	}
 
+</script>
 <script type="text/javascript">
 function orderPay(){
     $.ajax({
@@ -211,8 +228,6 @@ function orderPay(){
         }
 
     })
- 
-  //  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
 } 
 </script>
 
@@ -224,47 +239,3 @@ function orderPay(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%-- 
-function orderPay(){
-    $.ajax({
-    
-        url : "<c:url value='/order/Pay'/>",
-        type : "POST",
-        dataType :"TEXT",
-        data : { "GOODS_INDEX" : $("#GOODS_INDEX").val(),
-        	"GOODS_TITLE" : $("#GOODS_TITLE").val(), "GOODS_PRICE" : $("#GOODS_PRICE").val(),
-        	"GOODS_OP1" : $("#GOODS_OP1").val(), "GOODS_OP2" : $("#GOODS_OP2").val(),"GOODS_OP3" : $("#GOODS_OP3").val(),
-        	"GOODS_OP4" : $("#GOODS_OP4").val() ,
-        	"USER_NUM" : $("#USER_NUM").val() , "USER_NAME" : $("#USER_NAME").val() ,
-        	"USER_PHONE" : $("#USER_PHONE").val() , "USER_ZIPCODE" : $("#USER_ZIPCODE").val() ,
-        	"USER_ADD1" : $("#USER_ADD1").val() , "USER_ADD2" : $("#USER_ADD2").val()},
-        	
-        	
-        	
-        // 정보 넘기기때 사용할 이름: $("jsp로받아올값").val() 일단 user_id 는 flower
-        success : function (data) {
-        	
-        	
-        	alert("구매완료");
-        	history.go(-2);
-
-        }
-
-    })
- 
-  //  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
-} 
-  --%>
