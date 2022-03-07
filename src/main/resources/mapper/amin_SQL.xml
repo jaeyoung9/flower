@@ -105,13 +105,14 @@ notice_index = #{NOTICE_INDEX}
 ]]>   
 </delete> 
 
-<delete id="goodsDelete" parameterType="hashmap" >   
-<![CDATA[ 
-Delete   
-from    
-TB_GOODS
-Where   
-GOODS_INDEX = #{GOODS_INDEX} 
-]]>   
-</delete>    
+<update id="goodsDelete" parameterType="hashmap" >   
+
+<![CDATA[
+UPDATE TB_GOODS
+SET GOODS_OP1= '삭제'
+WHERE
+GOODS_INDEX=  #{GOODS_INDEX}
+]]>
+
+</update>    
 </mapper>
