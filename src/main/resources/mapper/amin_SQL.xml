@@ -106,5 +106,15 @@ TB_NOTICE
 Where   
 notice_index = #{NOTICE_INDEX} 
 ]]>   
-</delete>   
+
+</delete> 
+
+<update id="goodsDelete" parameterType="hashmap" >   
+<![CDATA[
+UPDATE TB_GOODS
+SET GOODS_OP1= '삭제'
+WHERE
+GOODS_INDEX=  #{GOODS_INDEX}
+]]>
+</update>    
 </mapper>

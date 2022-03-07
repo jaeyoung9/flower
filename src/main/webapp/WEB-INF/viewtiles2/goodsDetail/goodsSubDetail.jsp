@@ -106,12 +106,7 @@
 					<li class="goodsDetailli">${goodsSubDetail.GOODS_CONTENT}</li>
 					<li class="goodsDetailprice"><fmt:formatNumber
 							value="${goodsSubDetail.GOODS_PRICE}" pattern="#,###" />원</li>
-					<li class="goodsDetailoption"><select id="test">
-							<option id="GOODS_OP2" value="${goodsSubDetail.GOODS_OP2}">${goodsSubDetail.GOODS_OP2}</option>
-							<option id="GOODS_OP3" value="${goodsSubDetail.GOODS_OP3}">${goodsSubDetail.GOODS_OP3}</option>
-							<option id="GOODS_OP4" value="${goodsSubDetail.GOODS_OP4}">${goodsSubDetail.GOODS_OP4}</option>
-					</select> </li>
-				</ul>
+								</ul>
 				<div class="goodsDetail-btn">
 					<button class="w-btn w-btn-pink" type="button" id="put"
 						onclick="basket_put()">담기</button>
@@ -124,17 +119,28 @@
 					id="GOODS_TITLE" value="${goodsSubDetail.GOODS_TITLE}"> <input
 					type="hidden" id="GOODS_PRICE"
 					value="${goodsSubDetail.GOODS_PRICE}"> <input type="hidden"
-					id="GOODS_OP1" value="${goodsSubDetail.GOODS_OP1}"> <input
-					type="hidden" id="GOODS_OP2" value="${goodsSubDetail.GOODS_OP2}">
-				<input type="hidden" id="GOODS_OP3"
-					value="${goodsSubDetail.GOODS_OP3}"> <input type="hidden"
-					id="GOODS_OP4" value="${goodsSubDetail.GOODS_OP4}">
+					id="GOODS_OP1" value="${goodsSubDetail.GOODS_OP1}"> 
 			</div>
 			<div class="goodsDetailImg">
 				<a><img src="../../images/${goodsSubDetail.STORED_FILE_IMG} "
 					height="500" width="910" /></a>
 			</div>
 		</c:forEach>
+
+<li class="goodsDetailoption"><select id="test">
+				<c:forEach items="${list11}" var="list11">
+					<option id="GOODS_OP4" value="${list11}">${list11}</option>
+				</c:forEach>
+		</select> <select id="test">
+				<c:forEach items="${list12}" var="list12">
+					<option id="GOODS_OP3" value="${list12}">${list12}</option>
+				</c:forEach>
+		</select> <select id="test">
+				<c:forEach items="${list13}" var="list13">
+					<option id="GOODS_OP2" value="${list13}">${list13}</option>
+				</c:forEach>
+		</select></li>
+
 
 		<%-- 리뷰 --%>
 		<div class="goodsDetailreviewtitle">

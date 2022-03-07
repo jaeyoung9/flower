@@ -1,7 +1,9 @@
 package com.my.flower.goods;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -71,6 +73,33 @@ public class GoodsController {
 	public ModelAndView subDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("goodsSubDetail");
 		List<Map<String, Object>> goodsSubDetail = goodsService.getsubDetail(commandMap.getMap());
+		
+//		옵션 list  
+		List<String> list11 = new ArrayList<String>();
+		List<String> list12 = new ArrayList<String>();
+		List<String> list13 = new ArrayList<String>();
+	// if .
+		if(goodsSubDetail.get(0).get("GOODS_OP4") != null) {
+			if(goodsSubDetail.get(0).get("GOODS_OP3") != null) {
+				if(goodsSubDetail.get(0).get("GOODS_OP2") != null) {
+					StringTokenizer op4 = new StringTokenizer((String) goodsSubDetail.get(0).get("GOODS_OP4"),  ",");
+					StringTokenizer op3 = new StringTokenizer((String) goodsSubDetail.get(0).get("GOODS_OP3"),  ",");
+					StringTokenizer op2 = new StringTokenizer((String) goodsSubDetail.get(0).get("GOODS_OP2"),  ",");
+				// list 값 담고 
+					while(op4.hasMoreElements()) {
+						list11.add(op4.nextToken());
+					}
+					while(op3.hasMoreElements()) {
+						list12.add(op3.nextToken());
+					}
+					while(op2.hasMoreElements()) {
+						list13.add(op2.nextToken());
+					}
+					
+				}
+			}
+		}
+		
 		List<Map<String, Object>> Review = goodsService.getReview(commandMap.getMap());
 		List<Map<String, Object>> ReviewRe = goodsService.getReviewRe(commandMap.getMap());
 		HttpSession session = request.getSession();// 세션 값 불러오고 
@@ -78,6 +107,9 @@ public class GoodsController {
 		mv.addObject("goodsSubDetail", goodsSubDetail);
 		mv.addObject("review", Review);
 		mv.addObject("reviewRe", ReviewRe);
+		mv.addObject("list11", list11);
+		mv.addObject("list12", list12);
+		mv.addObject("list13", list13);
 		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
 		return mv;
 	}
@@ -87,6 +119,34 @@ public class GoodsController {
 	public ModelAndView saleDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("goodsSaleDetail");
 		List<Map<String, Object>> goodsSaleDetail = goodsService.getsaleDetail(commandMap.getMap());
+//		옵션 list  
+		List<String> list11 = new ArrayList<String>();
+		List<String> list12 = new ArrayList<String>();
+		List<String> list13 = new ArrayList<String>();
+	// if .
+		if(goodsSaleDetail.get(0).get("GOODS_OP4") != null) {
+			if(goodsSaleDetail.get(0).get("GOODS_OP3") != null) {
+				if(goodsSaleDetail.get(0).get("GOODS_OP2") != null) {
+					StringTokenizer op4 = new StringTokenizer((String) goodsSaleDetail.get(0).get("GOODS_OP4"),  ",");
+					StringTokenizer op3 = new StringTokenizer((String) goodsSaleDetail.get(0).get("GOODS_OP3"),  ",");
+					StringTokenizer op2 = new StringTokenizer((String) goodsSaleDetail.get(0).get("GOODS_OP2"),  ",");
+				// list 값 담고 
+					while(op4.hasMoreElements()) {
+						list11.add(op4.nextToken());
+					}
+					while(op3.hasMoreElements()) {
+						list12.add(op3.nextToken());
+					}
+					while(op2.hasMoreElements()) {
+						list13.add(op2.nextToken());
+					}
+					
+				}
+			}
+		}
+			
+			
+		
 		List<Map<String, Object>> Review2 = goodsService.getReview2(commandMap.getMap());
 		List<Map<String, Object>> ReviewRe = goodsService.getReviewRe(commandMap.getMap());
 		HttpSession session = request.getSession();// 세션 값 불러오고 
@@ -94,6 +154,9 @@ public class GoodsController {
 		mv.addObject("goodsSaleDetail", goodsSaleDetail);
 		mv.addObject("review2", Review2);
 		mv.addObject("reviewRe", ReviewRe);
+		mv.addObject("list11", list11);
+		mv.addObject("list12", list12);
+		mv.addObject("list13", list13);
 		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
 		return mv;
 	}
