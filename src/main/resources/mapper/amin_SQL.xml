@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amin">
+
+<!-- 회원 리스트 불러오기 -->
+<select id="userList" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+USER_ID
+FROM
+TB_MEMBER
+]]>
+</select>
+
+<!-- 회원 ID 검색하기 -->
+<select id="findUser" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+USER_NUM,
+USER_ID,
+USER_NAME,
+USER_PHONE,
+USER_ZIPCODE,
+USER_ADD1,
+USER_ADD2
+FROM
+TB_MEMBER
+WHERE
+USER_ID = #{USER_ID}
+]]>
+</select>
+
+<!-- 회원 삭제하기 -->
+<update id="userListDelete" parameterType="hashmap">
+<![CDATA[
+UPDATE TB_MEMBER
+SET DEL_GB = 'Y'
+WHERE
+USER_ID = #{USER_ID}
+]]>
+</update>
+
+<!-- 주문 받은 내역-->
+<select id="orderList" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT * FROM  ( select rownum as RNUM,  s.* 
+from( select
+O.ORDER_NUM,
+O.USER_NUM,
+M.USER_ID,
+G.STORED_FILE_THUMB,
+G.GOODS_TITLE,
+O.ORDER_OP1,
+O.ORDER_OP2,
+O.ORDER_OP3,
+O.ORDER_OP4,
+O.TRANS
+FROM
+TB_ORDER O, TB_MEMBER M, TB_GOODS G
+WHERE O.USER_NUM = M.USER_NUM AND G.GOODS_TITLE = O.GOODS_TITLE
+)s) WHERE 
+RNUM >= '0' AND RNUM <= '10'
+]]>
+</select>
+
+<!-- 배송 여부 변경 -->
+<update id="trans" parameterType="hashmap">
+<![CDATA[
+UPDATE TB_ORDER
+SET TRANS = #{TRANS}
+WHERE
+ORDER_NUM = #{ORDER_NUM}
+]]>
+</update>
+
+<select id="aminGoodsList"  parameterType="hashmap" resultType="hashmap">  
+
+<![CDATA[   
+
+
+SELECT * FROM
+TB_GOODS
+]]> 
+
+</select> 
+
+<select id="aminNoticeList"  parameterType="hashmap" resultType="hashmap">  
+
+<![CDATA[   
+
+SELECT * FROM
+TB_NOTICE
+]]> 
+
+</select> 
+
+
+<delete id="noticeDelete" parameterType="hashmap" >   
+<![CDATA[ 
+Delete   
+from    
+TB_NOTICE 
+Where   
+notice_index = #{NOTICE_INDEX} 
+]]>   
+</delete> 
+
+<delete id="goodsDelete" parameterType="hashmap" >   
+<![CDATA[ 
+Delete   
+from    
+TB_GOODS
+Where   
+GOODS_INDEX = #{GOODS_INDEX} 
+]]>   
+</delete>    
+</mapper>

@@ -1,0 +1,6 @@
+<%@ page pageEncoding="utf-8" %>
+
+<!-- 화면의 하단에 공통적으로 사용할 태그나 조금 늦게 호출될 자바스크립트 등이 포함
+	 common.js에 있는 submit기능을 위한 숨김 폼 하나만 넣어둠. -->
+
+<form id="commonForm" name="commonForm"></form>

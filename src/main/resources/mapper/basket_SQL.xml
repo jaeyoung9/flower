@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="basket">
+
+
+
+<!-- 장바구니 불러오기, -->  
+<select id="basketList" parameterType="hashmap" resultType="hashmap">
+<![CDATA[ 
+SELECT * FROM  ( select rownum as RNUM,  s.* 
+from( select 
+B.USER_ID, 
+B.BASKET_INDEX, 
+B.BASKET_TITLE, 
+B.BASKET_price, 
+B.BASKET_op1, 
+B.BASKET_op2, 
+B.BASKET_op3, 
+B.BASKET_op4, 
+G.STORED_FILE_THUMB, 
+G.GOODS_INDEX 
+from 
+TB_BASKET B, TB_GOODS G 
+where B.USER_ID = #{USER_ID} and B.GOODS_INDEX =  g.GOODS_INDEX
+
+)s) WHERE 
+RNUM >= '0' AND RNUM <= '10'  
+
+]]>
+
+</select>
+
+
+
+
+
+<delete id="basketDelete" parameterType="hashmap"> 
+
+<![CDATA[ 
+
+Delete
+from
+TB_basket
+Where
+USER_ID = #{USER_ID}
+AND BASKET_INDEX = #{BASKET_INDEX}
+
+]]>
+
+</delete>
+
+<!--  동작완료 -->
+<insert id="basketPut" parameterType="hashmap"> 
+<![CDATA[ 
+insert into tb_BASKET( 
+BASKET_INDEX,
+USER_ID,
+GOODS_INDEX,
+BASKET_TITLE,
+BASKET_PRICE,
+BASKET_OP1,
+BASKET_OP2,
+BASKET_OP3,
+BASKET_OP4
+)  
+VALUES(
+TB_BASKET_SEQ.NEXTVAL,
+#{USER_ID},
+#{GOODS_INDEX},
+#{GOODS_TITLE},
+#{GOODS_PRICE},
+#{GOODS_OP1},
+#{GOODS_OP2},
+#{GOODS_OP3},
+#{GOODS_OP4}
+) 
+]]>
+</insert> 
+
+</mapper>

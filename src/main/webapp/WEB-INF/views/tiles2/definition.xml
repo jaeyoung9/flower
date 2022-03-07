@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+			
+		<!DOCTYPE tiles-definitions PUBLIC
+		       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+			
+		<tiles-definitions>
+			
+			<definition name="base_layout"	template="/WEB-INF/viewtiles2/layout.jsp">
+				<put-attribute name="header"
+					value="/WEB-INF/viewtiles2/header.jsp" />
+				<put-attribute name="footer"
+					value="/WEB-INF/viewtiles2/footer.jsp" />
+			</definition>
+			
+			<definition name="joinForm" extends="base_layout">
+				<!-- <put-attribute name="title" value="회원가입" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/join/joinForm.jsp" />
+			</definition>
+			
+			<definition name="main" extends="base_layout">
+				<!-- <put-attribute name="title" value="메인" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/main.jsp" />
+			</definition>
+			
+			
+			
+			
+			
+			<!-- <definition name="loginForm" template="/WEB-INF/viewtiles2/loginForm.jsp">
+			</definition> -->
+			<!-- 결제 -->
+			<definition name="userPayPage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="상세구매페이지" /> -->
+				<put-attribute name="body"
+				
+					value="/WEB-INF/viewtiles2/pay/userPayPage.jsp" />
+			</definition>
+			
+			<definition name="basketPayPage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="장바구니구매페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/pay/basketPayPage.jsp" />
+			</definition>
+			
+			<!--  -->
+			<definition name="reviewDetail" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="리뷰상세" /> -->
+				<put-attribute name="body"
+				
+					value="/WEB-INF/viewtiles2/review/reviewDetail.jsp" />
+			</definition>
+			
+			<definition name="reviewWritePage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="리뷰작성" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/review/reviewWritePage.jsp" />
+			</definition>
+			
+			
+			
+			<definition name="loginForm" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="로그인폼" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/login/loginForm.jsp" />
+			</definition>
+
+			<definition name="login" extends="base_layout">
+				<!-- <put-attribute name="title" value="로그인" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/login/login.jsp" />
+			</definition>	
+			
+			<definition name="findId" extends="base_layout">
+				<!-- <put-attribute name="title" value="아이디찾기" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/find/findId.jsp" />
+			</definition>
+			<definition name="findPw" extends="base_layout">
+		<!-- 		<put-attribute name="title" value="비밀번호찾기" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/find/findPw.jsp" />
+			</definition>	
+			<!--아이템리스트  -->
+			<definition name="saleList" extends="base_layout">
+		<!-- 		<put-attribute name="title" value="일반리스트" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/goodsList/saleList.jsp" />
+			</definition>
+			<definition name="subList" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="구독리스트" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/goodsList/subList.jsp" />
+			</definition>
+			
+			<!-- 아이템 상세페이지 -->
+			 <definition name="goodsSaleDetail" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="일반상세페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/goodsDetail/goodsSaleDetail.jsp" />
+			</definition>
+			<definition name="goodsSubDetail" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="구독상세페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/goodsDetail/goodsSubDetail.jsp" />
+			</definition> 
+			
+			<definition name="notice" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="이벤트" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/notice/notice.jsp" />
+			</definition>
+		
+					<definition name="myPage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="마이페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/myPage/myPage.jsp" />
+			</definition>
+			<definition name="myUpdate" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="마이페이지회원수정" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/myPage/myUpdate.jsp" />
+			</definition>
+			<definition name="checkPw" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="비밀번호확인" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/checkPw/checkPw.jsp" />
+			</definition>
+			<definition name="checkPwForm" extends="base_layout">
+				<!-- <put-attribute name="title" value="비밀번화확인폼" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/checkPw/checkPwForm.jsp" />
+			</definition>
+			
+			
+			<definition name="basket" extends="base_layout">
+		<!-- 		<put-attribute name="title" value="장바구니" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/basket/basket.jsp" />
+			</definition>
+			
+			<!-- 관리자 -->
+				<definition name="aminMyPage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="어드민 마이페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/aminMyPage.jsp" />
+			</definition>
+			<definition name="goodsWritePage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="상품 등록페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/goodsWritePage.jsp" />
+			</definition>
+			
+			<definition name="noticeWritePage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="이벤트 등록페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/noticeWritePage.jsp" />
+			</definition>
+			
+			<!--  헤더 안들어가-->
+			<definition name="aminBoardList" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="어드민 상품 삭제" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/aminBoardList.jsp" />
+			</definition>
+			<definition name="orderList" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="주문내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/orderList.jsp" />
+			</definition>
+			
+			<definition name="userList" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="주문내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/userList.jsp" />
+			</definition>
+			
+</tiles-definitions>

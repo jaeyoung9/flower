@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPage">
+<!-- 회원정보 값불러오기 SQL 동작잘됨 -->
+<select id="myPage" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+USER_ID,
+USER_PW,
+USER_NAME,
+USER_PHONE,
+USER_EMAIL,
+USER_ZIPCODE,
+USER_ADD1,
+USER_ADD2
+FROM TB_MEMBER
+WHERE USER_ID = #{USER_ID}
+]]>
+</select>
+
+<!-- 회원정보 수정처리(완료시키기) 동작잘됨 -->
+<update id="myUpdate" parameterType="hashmap">
+<![CDATA[
+UPDATE
+TB_MEMBER
+SET
+USER_ID = #{USER_ID},
+USER_PW = #{USER_PW},
+USER_NAME = #{USER_NAME},
+USER_PHONE = #{USER_PHONE},
+USER_EMAIL = #{USER_EMAIL},
+USER_ZIPCODE = #{USER_ZIPCODE},
+USER_ADD1 = #{USER_ADD1},
+USER_ADD2 = #{USER_ADD2}
+WHERE
+USER_ID = #{USER_ID}
+]]>
+</update>
+<!-- 회원 탈퇴 withdraw 동작잘됨 -->
+<update id="withdraw" parameterType="hashmap">
+<![CDATA[
+UPDATE TB_MEMBER
+SET DEL_GB = 'Y'
+WHERE
+USER_ID = #{USER_ID}
+]]>
+</update>
+<!-- (사용자) 회원 정보 - 비밀번호 체크 -->
+<select id="checkPw" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+*
+FROM
+TB_MEMBER
+WHERE
+USER_PW = #{USER_PW} and USER_ID = #{USER_ID}
+]]>
+</select>
+
+<!-- (USER)주문 내역 -->
+<select id="orderList" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+o.ORDER_NUM,
+o.GOODS_INDEX,
+o.USER_NUM,
+o.ORDER_PHONE,
+o.ORDER_ZIPCODE,
+o.ORDER_ADD1,
+o.ORDER_ADD2,
+o.GOODS_TITLE,
+o.ORDER_PRICE,
+o.ORDER_OP1,
+o.ORDER_OP2,
+o.ORDER_OP3,
+o.ORDER_OP4,
+o.ORDER_INFO,
+o.trans,
+G.STORED_FILE_THUMB
+FROM
+TB_ORDER O, TB_MEMBER M, TB_GOODS G
+WHERE O.USER_NUM = M.USER_NUM  AND G.GOODS_INDEX = O.GOODS_INDEX AND USER_ID = #{USER_ID}
+]]>
+</select>
+
+</mapper>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+
+	<!-- 리뷰 작성 -->
+	<insert id="reviewUserWrite" parameterType="hashmap"> 
+<![CDATA[ 
+insert into tb_review(
+	REVIEW_INDEX,
+	USER_NUM,
+	ORDER_NUM,
+	GOODS_INDEX,
+	REVIEW_CONTENT,
+	USER_ID,
+	REVIEW_DATE,
+	ORIGINAL_FILE_NAME4,
+	FILE_SIZE4,
+	STORED_FILE_REVIEW,
+	DEL_GB4,
+	UPD_DTM4
+	
+)values(
+	REVIEW_INDEX_SEQ.NEXTVAL,
+	#{USER_NUM},
+	#{ORDER_NUM},
+	#{GOODS_INDEX},
+	#{REVIEW_CONTENT},
+	#{USER_ID},
+	SYSDATE,
+	#{ORIGINAL_FILE_NAME4},
+	#{FILE_SIZE4},
+	#{STORED_FILE_REVIEW},
+	'N',
+	SYSDATE
+)
+]]>
+	</insert>
+
+	<!-- 리뷰 작성페이지 이동 -->
+	<select id="getOrder" parameterType="hashmap"
+		resultType="hashmap"> 
+<![CDATA[ 
+SELECT *
+
+from
+TB_ORDER
+
+WHERE
+ORDER_NUM = #{ORDER_NUM}
+]]>
+	</select>
+
+	<!-- 리뷰 상세페이지 -->
+	<select id="reviewDetail" parameterType="hashmap" resultType="hashmap"> 
+<![CDATA[ 
+select
+R.review_date,
+R.STORED_FILE_REVIEW,
+R.review_content,
+R.review_INDEX
+
+from 
+TB_REVIEW R, TB_ORDER O, TB_GOODS G
+
+where 
+R.ORDER_NUM = O.ORDER_NUM AND O.ORDER_NUM = #{ORDER_NUM} AND G.GOODS_INDEX =#{GOODS_INDEX}
+]]>
+	</select>
+
+<!-- 관리자 답변 작성 -->
+	<insert id="reviewReWrite" parameterType="hashmap"> 
+<![CDATA[ 
+insert into tb_review_re(
+	REVIEW_INDEX,
+	REVIEW_RE_CONTENT,
+	REVIEW_RE_DATE
+)values(
+	#{REVIEW_INDEX},
+	#{REVIEW_RE_CONTENT},
+	sysdate
+)
+]]>
+	</insert>
+
+<!-- 관리자 답변 상세 -->
+<select id="reviewReDetail" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+select
+L.review_re_date,
+L.review_re_content
+
+FROM
+TB_GOODS G, TB_REVIEW  R, TB_REVIEW_RE L, TB_ORDER O
+
+where 
+R.ORDER_NUM = O.ORDER_NUM AND O.ORDER_NUM = #{ORDER_NUM} AND R.REVIEW_INDEX = L.REVIEW_INDEX AND G.GOODS_INDEX = #{GOODS_INDEX}
+]]>
+	</select>
+	
+<!-- 관리자 답변 삭제 -->
+<delete id="reviewReDelete" parameterType="hashmap">
+<![CDATA[
+DELETE
+FROM
+TB_REVIEW_RE
+WHERE
+REVIEW_INDEX = #{REVIEW_INDEX}
+]]>
+</delete>
+	
+</mapper>

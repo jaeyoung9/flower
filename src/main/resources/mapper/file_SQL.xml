@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">   
+    
+    <!-- <insert id="insertFileUpload" parameterType="hashmap">
+        INSERT INTO TB_FILE
+        (
+            FILE_IDX
+        ,   ORIGINAL_FILE_NAME
+        ,   STORED_FILE_NAME
+        ,   FILE_SIZE
+        ,   DEL_GB
+        ,   UPD_DTM
+        ,   UPD_ID
+        , GOODS_TITLE
+        , GOODS_PRICE
+        , GOODS_CONTENT
+        ) VALUES
+        (
+            SEQ_TB_FILE_IDX.NEXTVAL
+        ,   #{ORIGINAL_FILE_NAME}
+        ,   #{STORED_FILE_NAME}
+        ,   #{FILE_SIZE}
+        ,   'N'
+        ,   SYSDATE
+        ,   'FLOWER'
+        , #{GOODS_TITLE}
+        , #{GOODS_PRICE}
+        , #{GOODS_CONTENT}
+        )
+        
+    </insert> -->  
+    <update id="insertgoodsimg" parameterType="hashmap">
+              UPDATE
+TB_GOODS
+SET
+ORIGINAL_FILE_NAME = #{ORIGINAL_FILE_NAME},
+STORED_FILE_IMG = #{STORED_FILE_IMG},
+ FILE_SIZE = #{FILE_SIZE},
+DEL_GB = 'N',
+UPD_DTM = SYSDATE
+WHERE
+GOODS_TITLE = #{GOODS_TITLE}
+    </update>
+    
+    <update id="insertgoodsthumb" parameterType="hashmap">               
+                     UPDATE
+TB_GOODS
+SET
+ORIGINAL_FILE_NAME2 = #{ORIGINAL_FILE_NAME2},
+STORED_FILE_THUMB = #{STORED_FILE_THUMB},
+ FILE_SIZE2 = #{FILE_SIZE2},
+DEL_GB2 = 'N',
+UPD_DTM2 = SYSDATE
+WHERE
+GOODS_TITLE = #{GOODS_TITLE}              
+    </update>
+</mapper>

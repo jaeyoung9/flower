@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="goods">
+	<!-- 1번 '구독' , 2번 '일반' -->
+	<select id="goodsSubList" parameterType="hashmap"
+		resultType="hashmap">
+		<include refid="common.pagingPre"/>
+<![CDATA[
+SELECT
+	ROW_NUMBER() OVER (ORDER BY GOODS_INDEX DESC) RNUM,
+	GOODS_INDEX,
+	GOODS_TITLE,
+	GOODS_CONTENT,
+	GOODS_PRICE,
+	STORED_FILE_THUMB
+FROM (SELECT ROW_NUMBER() OVER (ORDER BY GOODS_INDEX DESC) RNUM,
+	GOODS_INDEX,
+	GOODS_TITLE,
+	GOODS_CONTENT,
+	GOODS_PRICE,
+	STORED_FILE_THUMB
+FROM TB_GOODS
+WHERE GOODS_OP1 = '구독')
+]]>
+<include refid="common.pagingPost"/>
+</select>
+
+	<!-- 0 ~ 1 페이징 -->
+	<select id="goodsSaleList" parameterType="hashmap"
+		resultType="hashmap">
+<include refid="common.pagingPre"/>
+		<![CDATA[
+		SELECT
+	ROW_NUMBER() OVER (ORDER BY GOODS_INDEX DESC) RNUM,
+	GOODS_INDEX,
+	GOODS_TITLE,
+	GOODS_CONTENT,
+	GOODS_PRICE,
+	STORED_FILE_THUMB
+FROM (SELECT ROW_NUMBER() OVER (ORDER BY GOODS_INDEX DESC) RNUM,
+	GOODS_INDEX,
+	GOODS_TITLE,
+	GOODS_CONTENT,
+	GOODS_PRICE,
+	STORED_FILE_THUMB
+FROM TB_GOODS
+WHERE GOODS_OP1 = '일반')
+		]]>
+<include refid="common.pagingPost"/>
+	</select>
+
+
+	<!--#{goods_op1} -->
+
+	<select id="Review" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+select
+G.goods_index,
+R.ORDER_NUM,
+R.STORED_FILE_REVIEW,
+R.review_content,
+R.user_id
+
+FROM
+TB_GOODS G, TB_REVIEW  R
+where 
+G.GOODS_INDEX = R.GOODS_INDEX  AND G.goods_op1='구독' and G.goods_index = #{GOODS_INDEX}
+
+
+]]>
+	</select>
+
+
+	<select id="Review2" parameterType="hashmap"
+		resultType="hashmap">
+<![CDATA[
+select
+G.GOODS_INDEX,
+R.ORDER_NUM,
+R.STORED_FILE_REVIEW,
+R.review_content,
+R.user_id
+
+FROM
+TB_GOODS G, TB_REVIEW  R
+where 
+G.GOODS_INDEX = R.GOODS_INDEX  AND G.goods_op1='일반' and G.GOODS_INDEX = #{GOODS_INDEX}
+
+
+]]>
+	</select>
+
+
+	<select id="ReviewRe" parameterType="hashmap"
+		resultType="hashmap">
+<![CDATA[
+
+select
+
+L.review_re_content
+
+
+FROM
+TB_GOODS G, TB_REVIEW  R, TB_REVIEW_RE L
+where 
+G.GOODS_INDEX = R.GOODS_INDEX and R.review_index = L.review_index  and G.GOODS_INDEX = #{GOODS_INDEX}
+]]>
+	</select>
+
+
+	<select id="SubDetail" parameterType="hashmap"
+		resultType="hashmap">
+<![CDATA[ 
+            
+            SELECT * FROM
+(
+SELECT ROWNUM AS RNUM, S.*
+FROM(
+select
+GOODS_INDEX,
+STORED_FILE_THUMB,
+goods_title,
+goods_content,
+goods_price,
+STORED_FILE_IMG,
+goods_op1,
+goods_op2,
+goods_op3,
+goods_op4
+FROM
+TB_GOODS 
+where
+ goods_op1='구독' and GOODS_INDEX = #{GOODS_INDEX})S)
+WHERE 
+RNUM >='1' AND RNUM <='9999'
+]]>
+	</select>
+
+	<select id="SaleDetail" parameterType="hashmap"
+		resultType="hashmap">
+<![CDATA[ 
+          
+            SELECT * FROM
+(
+SELECT ROWNUM AS RNUM, S.*
+FROM(
+select
+GOODS_INDEX,
+STORED_FILE_THUMB,
+goods_title,
+goods_content,
+goods_price,
+STORED_FILE_IMG,
+goods_op1,
+goods_op2,
+goods_op3,
+goods_op4
+FROM
+TB_GOODS 
+where
+ goods_op1='일반' and GOODS_INDEX = #{GOODS_INDEX})S)
+WHERE 
+RNUM >='1' AND RNUM <='9999'
+]]>
+	</select>
+
+	<!-- 구독 페이징 -->
+	<select id="subTotal" parameterType="hashmap" resultType="int">
+		<![CDATA[
+		SELECT 
+			COUNT(*)as TOTAL 
+		FROM 
+			TB_GOODS
+            where goods_op1 = '구독' 
+          ]]>
+	</select>
+	<select id="subNum" parameterType="hashmap" resultType="int">
+		<![CDATA[
+	select rownum as  num, GOODS_INDEX, goods_title, goods_content 
+            from tb_goods where goods_op1 = '구독'  
+          ]]>
+	</select>
+
+	<!-- 일반 페이징 -->
+	<select id="saleTotal" parameterType="hashmap" resultType="int">
+		<![CDATA[
+		SELECT 
+			COUNT(*)as TOTAL 
+		FROM 
+			TB_GOODS
+            where goods_op1 = '일반' 
+          ]]>
+	</select>
+	<select id="saleNum" parameterType="hashmap" resultType="int">
+		<![CDATA[
+	select rownum as  num, GOODS_INDEX, goods_title, goods_content 
+            from tb_goods where goods_op1 = '일반'
+          ]]>
+	</select>
+<insert id="goodsWrite" parameterType="hashmap">
+<![CDATA[
+insert into tb_goods( 
+
+GOODS_INDEX, 
+
+GOODS_TITLE, 
+
+GOODS_CONTENT, 
+
+GOODS_PRICE, 
+
+GOODS_OP1, 
+
+GOODS_OP2, 
+
+GOODS_OP3, 
+
+GOODS_OP4 
+
+) 
+
+values( 
+
+TB_GOODS_SEQ.NEXTVAL, 
+#{GOODS_TITLE}, 
+#{GOODS_CONTENT}, 
+#{GOODS_PRICE}, 
+#{GOODS_OP1}, 
+#{GOODS_OP2}, 
+#{GOODS_OP3},
+#{GOODS_OP4}
+) 
+]]>
+</insert>
+<select id="maingoods" parameterType="hashmap"
+		resultType="hashmap">
+<![CDATA[ 
+            
+            
+       select * from TB_GOODS
+      
+ 
+]]>
+	</select>
+	
+	
+</mapper>
