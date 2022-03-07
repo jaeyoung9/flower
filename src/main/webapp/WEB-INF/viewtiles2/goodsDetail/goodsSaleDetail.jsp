@@ -29,7 +29,7 @@
 .goodsDetailContent {
 	position: relative;
 	margin-top: 0px;
-	top: -300px; 
+	top: -300px;
 	left: 150px;
 	list-style: none;
 }
@@ -72,30 +72,51 @@
 	position: relative;
 	right: 300px;
 }
-.goodsDetailreviewtitle{
-position: relative;
-right: 320px;
-}
-.goodsDetailreview{
-position: relative;
-bottom: 90px;
-}
-.gdhr{
-position: relative;
-bottom: 20px;
 
+.goodsDetailreviewtitle {
+	position: relative;
+	right: 320px;
+}
+
+.goodsDetailreview {
+	position: relative;
+	bottom: 90px;
+}
+
+.gdhr {
+	position: relative;
+	bottom: 20px;
 }
 </style>
 </head>
 <body>
 	<div class="goodsDetail">
-		<input type="hidden" id="USER_ID" value="${USER_ID}">
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br> <input type="hidden" id="USER_ID" value="${USER_ID}">
 		<%-- 아이디 히든으로 숨김 --%>
 		<c:forEach items="${goodsSaleDetail}" var="goodsSaleDetail">
 
 			<div class="goodsDetailthum">
-				<a><img
-					src="../../images/${goodsSaleDetail.STORED_FILE_THUMB}"
+				<a><img src="../../images/${goodsSaleDetail.STORED_FILE_THUMB}"
 					height="400" width="450" /></a>
 			</div>
 
@@ -105,11 +126,7 @@ bottom: 20px;
 					<li class="goodsDetailli">${goodsSaleDetail.GOODS_CONTENT}</li>
 					<li class="goodsDetailprice"><fmt:formatNumber
 							value="${goodsSaleDetail.GOODS_PRICE}" pattern="#,###" />원</li>
-					<li class="goodsDetailoption"><select id="test">
-							<option id="GOODS_OP2" value="${goodsSaleDetail.GOODS_OP2}">${goodsSaleDetail.GOODS_OP2}</option>
-							<option id="GOODS_OP3" value="${goodsSaleDetail.GOODS_OP3}">${goodsSaleDetail.GOODS_OP3}</option>
-							<option id="GOODS_OP4" value="${goodsSaleDetail.GOODS_OP4}">${goodsSaleDetail.GOODS_OP4}</option>
-					</select> </li>
+
 				</ul>
 				<div class="goodsDetail-btn">
 					<button class="w-btn w-btn-pink" type="button" id="put"
@@ -119,24 +136,39 @@ bottom: 20px;
 				</div>
 
 				<input type="hidden" id="GOODS_INDEX"
-					value="${goodsSaleDetail.GOODS_INDEX}"> <input type="hidden"
-					id="GOODS_TITLE" value="${goodsSaleDetail.GOODS_TITLE}"> <input
+					value="${goodsSaleDetail.GOODS_INDEX}"> <input
+					type="hidden" id="GOODS_TITLE"
+					value="${goodsSaleDetail.GOODS_TITLE}"> <input
 					type="hidden" id="GOODS_PRICE"
-					value="${goodsSaleDetail.GOODS_PRICE}"> <input type="hidden"
-					id="GOODS_OP1" value="${goodsSaleDetail.GOODS_OP1}"> <input
-					type="hidden" id="GOODS_OP2" value="${goodsSaleDetail.GOODS_OP2}">
-				<input type="hidden" id="GOODS_OP3"
-					value="${goodsSaleDetail.GOODS_OP3}"> <input type="hidden"
-					id="GOODS_OP4" value="${goodsSaleDetail.GOODS_OP4}">
+					value="${goodsSaleDetail.GOODS_PRICE}"> <input
+					type="hidden" id="GOODS_OP1" value="${goodsSaleDetail.GOODS_OP1}">
+				
 			</div>
 			<div class="goodsDetailImg">
-				<a><img
-					src="../../images/${goodsSaleDetail.STORED_FILE_IMG} "
+				<a><img src="../../images/${goodsSaleDetail.STORED_FILE_IMG} "
 					height="500" width="910" /></a>
-					
-					 
+
+
 			</div>
 		</c:forEach>
+
+		<!-- op. -->
+		<li class="goodsDetailoption"><select id="test">
+				<c:forEach items="${list11}" var="list11">
+					<option id="GOODS_OP4" value="${list11}">${list11}</option>
+				</c:forEach>
+		</select> <select id="test">
+				<c:forEach items="${list12}" var="list12">
+					<option id="GOODS_OP3" value="${list12}">${list12}</option>
+				</c:forEach>
+		</select> <select id="test">
+				<c:forEach items="${list13}" var="list13">
+					<option id="GOODS_OP2" value="${list13}">${list13}</option>
+				</c:forEach>
+		</select></li>
+		
+		
+		
 
 		<%-- 리뷰 --%>
 		<div class="goodsDetailreviewtitle">
@@ -146,19 +178,20 @@ bottom: 20px;
 
 		<c:forEach items="${review2}" var="review">
 			<div class="goodsDetailreviewtitle">
-			<a style="line-height: 30px;"
-				href="/flower/reviewDetail?ORDER_NUM=${review.ORDER_NUM}&GOODS_INDEX=${review.GOODS_INDEX}"
-				id="ReviewDetail">
-			<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdh0ZzI%2FbtruuiD3Elb%2FzyvabSbYc5JYubPjBDRoT0%2Fimg.jpg" height="100" width="140" /></a>
-				</div>
-				<div class="goodsDetailreview">
-			<a style="line-height: 30px;"
-				href="/flower/reviewDetail?ORDER_NUM=${review.ORDER_NUM}&GOODS_INDEX=${review.GOODS_INDEX}"
-				id="ReviewDetail">${review.REVIEW_CONTENT}</a>
-				</div>
-				<div class="gdhr">
-			<hr>
-</div>
+				<a style="line-height: 30px;"
+					href="/flower/reviewDetail?ORDER_NUM=${review.ORDER_NUM}&GOODS_INDEX=${review.GOODS_INDEX}"
+					id="ReviewDetail"> <img
+					src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdh0ZzI%2FbtruuiD3Elb%2FzyvabSbYc5JYubPjBDRoT0%2Fimg.jpg"
+					height="100" width="140" /></a>
+			</div>
+			<div class="goodsDetailreview">
+				<a style="line-height: 30px;"
+					href="/flower/reviewDetail?ORDER_NUM=${review.ORDER_NUM}&GOODS_INDEX=${review.GOODS_INDEX}"
+					id="ReviewDetail">${review.REVIEW_CONTENT}</a>
+			</div>
+			<div class="gdhr">
+				<hr>
+			</div>
 		</c:forEach>
 		<br> <br> <br>
 		<%-- 리뷰 답변 --%>
