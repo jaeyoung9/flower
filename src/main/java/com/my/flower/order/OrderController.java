@@ -27,10 +27,11 @@ public class OrderController {
 
 	@RequestMapping(value = "/order/PayPage")
 	@ResponseBody
-	public ModelAndView orderPayPage(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView orderPayPage(CommandMap commandMap, HttpServletRequest request, Object op2, Object op3, Object op4) throws Exception {
 		ModelAndView mv = new ModelAndView("userPayPage");
 		List<Map<String, Object>> orderPayPage = orderService.orderPayPage(commandMap.getMap());
 		List<Map<String, Object>> orderMember = orderService.orderMember(commandMap.getMap());
+		
 		mv.addObject("orderPayPage", orderPayPage);
 		mv.addObject("orderMember", orderMember);
 		return mv;
