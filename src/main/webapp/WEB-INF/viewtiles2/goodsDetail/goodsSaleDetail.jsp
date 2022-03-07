@@ -153,15 +153,15 @@
 		</c:forEach>
 
 		<!-- op. -->
-		<li class="goodsDetailoption"><select id="test">
+		<li class="goodsDetailoption"><select id="GOODS_OP4">
 				<c:forEach items="${list11}" var="list11">
 					<option id="GOODS_OP4" value="${list11}">${list11}</option>
 				</c:forEach>
-		</select> <select id="test">
+		</select> <select id="GOODS_OP3">
 				<c:forEach items="${list12}" var="list12">
 					<option id="GOODS_OP3" value="${list12}">${list12}</option>
 				</c:forEach>
-		</select> <select id="test">
+		</select> <select id="GOODS_OP2">
 				<c:forEach items="${list13}" var="list13">
 					<option id="GOODS_OP2" value="${list13}">${list13}</option>
 				</c:forEach>
@@ -215,9 +215,9 @@
 				"GOODS_TITLE" : $("#GOODS_TITLE").val(),
 				"GOODS_PRICE" : $("#GOODS_PRICE").val(),
 				"GOODS_OP1" : $("#GOODS_OP1").val(),
-				"GOODS_OP2" : $("#GOODS_OP2").val(),
-				"GOODS_OP3" : $("#GOODS_OP3").val(),
-				"GOODS_OP4" : $("#GOODS_OP4").val()
+				"GOODS_OP2" : $("#GOODS_OP2 option:selected").val(),
+				"GOODS_OP3" : $("#GOODS_OP3 option:selected").val(),
+				"GOODS_OP4" : $("#GOODS_OP4 option:selected").val()
 			},
 			// 정보 넘기기때 사용할 이름: $("jsp로받아올값").val() 일단 user_id 는 flower
 			success : function(data) {
@@ -237,24 +237,32 @@
 		$.ajax({
 			url : "<c:url value='/order/PayPage'/>",
 			type : "POST",
-			dataType : "TEXT",
+			dataType : "JSON",
 			data : {
 				"USER_ID" : $("#USER_ID").val(),
 				"GOODS_INDEX" : $("#GOODS_INDEX").val(),
 				"GOODS_TITLE" : $("#GOODS_TITLE").val(),
 				"GOODS_PRICE" : $("#GOODS_PRICE").val(),
 				"GOODS_OP1" : $("#GOODS_OP1").val(),
-				"GOODS_OP2" : $("#GOODS_OP2").val(),
-				"GOODS_OP3" : $("#GOODS_OP3").val(),
-				"GOODS_OP4" : $("#GOODS_OP4").val()
+				"GOODS_OP2" : $("#GOODS_OP2 option:selected").val(),
+				"GOODS_OP3" : $("#GOODS_OP3 option:selected").val(),
+				"GOODS_OP4" : $("#GOODS_OP4 option:selected").val()
 			},
 			// 정보 넘기기때 사용할 이름: $("jsp로받아올값").val() 일단 user_id 는 flower
 			success : function(data) {
 
 				location.href = "/flower/order/PayPage?GOODS_INDEX="
-						+ $("#GOODS_INDEX").val() + "&USER_ID="
-						+ $("#USER_ID").val();
-
+						+ $("#GOODS_INDEX").val() 
+						+ "&USER_ID="
+						+ $("#USER_ID").val()
+						+ "&GOODS_OP2="
+				+ $("#GOODS_OP2 option:selected").val()
+				+ "&GOODS_OP3="
+				+ $("#GOODS_OP3 option:selected").val()
+				+ "&GOODS_OP4="
+				+ $("#GOODS_OP4 option:selected").val(); 
+				
+				
 			},
 			error : function(request, status, error) {
 
