@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,16 +24,15 @@
 			<tbody id="tbody">
 				<c:forEach items="${aminGoodsList}" var="aminGoodsList">
 					<tr>
-						<td><input class="INDEX" type="checkbox" name="goods"
-							id="goods"> ${aminGoodsList.GOODS_TITLE}
+						<td>
+							<input class="INDEX" type="checkbox" name="goods" id="goods"/>
+								<br>${aminGoodsList.GOODS_TITLE}
 							<button type="button" name="goodsdelete" id="goodsdelete">삭제</button>
-
 							<form id="items">
-								<input type="hidden" id="num"
-									value="${aminGoodsList.GOODS_INDEX}">
-							</form></td>
+								<input type="hidden" id="num" value="${aminGoodsList.GOODS_INDEX}">
+							</form>
+						</td>
 					</tr>
-
 				</c:forEach>
 			</tbody>
 		</table>
@@ -44,17 +41,15 @@
 			<tbody id="noticetbody">
 				<c:forEach items="${aminNoticeList}" var="aminNoticeList">
 					<tr>
-						<td><input class="INDEX" type="checkbox" name="notice"
-							id="notice"> ${aminNoticeList.NOTICE_TITLE}
-							
+						<td>
+							<input class="INDEX" type="checkbox" name="notice" id="notice"/>
+								<br>${aminNoticeList.NOTICE_TITLE}
 							<button type="button" name="noticeDelete" id="noticeDelete">삭제</button>
 							<form id="items">
-								<input type="hidden" id="num"
-									value="${aminNoticeList.NOTICE_INDEX}">
-							</form></td>
-							
+								<input type="hidden" id="num" value="${aminNoticeList.NOTICE_INDEX}">
+							</form>
+						</td>
 					</tr>
-
 				</c:forEach>
 			</tbody>
 		</table>

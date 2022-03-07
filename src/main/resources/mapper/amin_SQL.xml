@@ -20,9 +20,12 @@ USER_NUM,
 USER_ID,
 USER_NAME,
 USER_PHONE,
+USER_EMAIL,
 USER_ZIPCODE,
 USER_ADD1,
-USER_ADD2
+USER_ADD2,
+AMIN_TIM,
+DEL_GB
 FROM
 TB_MEMBER
 WHERE
@@ -103,15 +106,5 @@ TB_NOTICE
 Where   
 notice_index = #{NOTICE_INDEX} 
 ]]>   
-</delete> 
-
-<delete id="goodsDelete" parameterType="hashmap" >   
-<![CDATA[ 
-Delete   
-from    
-TB_GOODS
-Where   
-GOODS_INDEX = #{GOODS_INDEX} 
-]]>   
-</delete>    
+</delete>   
 </mapper>
