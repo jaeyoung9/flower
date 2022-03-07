@@ -49,9 +49,13 @@ public class AminController {
 		mv.addObject("USER_ID", findUser.get("USER_ID"));
 		mv.addObject("USER_NAME", findUser.get("USER_NAME"));
 		mv.addObject("USER_PHONE", findUser.get("USER_PHONE"));
+		mv.addObject("USER_EMAIL", findUser.get("USER_EMAIL"));
 		mv.addObject("USER_ZIPCODE", findUser.get("USER_ZIPCODE"));
 		mv.addObject("USER_ADD1", findUser.get("USER_ADD1"));
 		mv.addObject("USER_ADD2", findUser.get("USER_ADD2"));
+		mv.addObject("AMIN_TIM", findUser.get("AMIN_TIM"));
+		mv.addObject("DEL_GB", findUser.get("DEL_GB"));
+		
 		return mv;
 	}
 
