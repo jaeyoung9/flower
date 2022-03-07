@@ -237,7 +237,7 @@
 		$.ajax({
 			url : "<c:url value='/order/PayPage'/>",
 			type : "POST",
-			dataType : "JSON",
+			dataType : "TEXT",
 			data : {
 				"USER_ID" : $("#USER_ID").val(),
 				"GOODS_INDEX" : $("#GOODS_INDEX").val(),
