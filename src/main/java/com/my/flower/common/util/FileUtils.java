@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Component("fileUtils")
 public class FileUtils {
-    private static final String filePath = "C:\\Users\\User\\Desktop\\ez\\프로젝트\\flower\\src\\main\\webapp\\images\\";
+    private static final String filePath = "C:\\JAVA flower\\src\\main\\webapp\\images\\";
     
     public static boolean deleteFile(String storedFileName) {
         File file = new File(filePath + storedFileName);
