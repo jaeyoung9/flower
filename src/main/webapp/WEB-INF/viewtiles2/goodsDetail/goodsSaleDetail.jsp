@@ -237,7 +237,7 @@
 		$.ajax({
 			url : "<c:url value='/order/PayPage'/>",
 			type : "POST",
-			dataType : "TEXT",
+			dataType : "JSON",
 			data : {
 				"USER_ID" : $("#USER_ID").val(),
 				"GOODS_INDEX" : $("#GOODS_INDEX").val(),
@@ -252,9 +252,17 @@
 			success : function(data) {
 
 				location.href = "/flower/order/PayPage?GOODS_INDEX="
-						+ $("#GOODS_INDEX").val() + "&USER_ID="
-						+ $("#USER_ID").val();
-
+						+ $("#GOODS_INDEX").val() 
+						+ "&USER_ID="
+						+ $("#USER_ID").val()
+						+ "&GOODS_OP2="
+				+ $("#GOODS_OP2 option:selected").val()
+				+ "&GOODS_OP3="
+				+ $("#GOODS_OP3 option:selected").val()
+				+ "&GOODS_OP4="
+				+ $("#GOODS_OP4 option:selected").val(); 
+				
+				
 			},
 			error : function(request, status, error) {
 
