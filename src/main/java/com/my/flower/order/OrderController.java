@@ -32,11 +32,14 @@ public class OrderController {
 //	결제 페이지
 	@RequestMapping(value = "/order/PayPage")
 	@ResponseBody
-	public ModelAndView orderPayPage( Model model,CommandMap commandMap, HttpServletRequest request ,String GOODS_OP2,String GOODS_OP3,String GOODS_OP4 ) throws Exception {
+ 	public ModelAndView orderPayPage( Model model,CommandMap commandMap, HttpServletRequest request ,String GOODS_OP2,String GOODS_OP3,String GOODS_OP4 ) throws Exception {
+
 		ModelAndView mv = new ModelAndView("userPayPage");
 		List<Map<String, Object>> orderPayPage = orderService.orderPayPage(commandMap.getMap());
 		List<Map<String, Object>> orderMember = orderService.orderMember(commandMap.getMap());
 		
+
+
 	// 보낸 값 받아서 저장하고 
 		String op2 = request.getParameter("GOODS_OP2");
 		String op3 = request.getParameter("GOODS_OP3");
@@ -46,6 +49,7 @@ public class OrderController {
 		mv.addObject("op4", op4);
 		mv.addObject("op3", op3);
 		mv.addObject("op2", op2);
+
 		mv.addObject("orderPayPage", orderPayPage);
 		mv.addObject("orderMember", orderMember);
 		return mv;
