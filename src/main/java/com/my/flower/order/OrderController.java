@@ -91,15 +91,5 @@ public class OrderController {
 	}
 	
 	
-	@RequestMapping(value = "/order/Delete")
-	@ResponseBody
-	public ModelAndView basketDelete(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("basket");// .jsp
-	 basketService.basketDelete(commandMap.getMap()); // 이게 맵으로 받아온 값을 basketPut으로 넣는다는
-		return mv; // 리턴
-	}
-
-	
-	
 	
 }

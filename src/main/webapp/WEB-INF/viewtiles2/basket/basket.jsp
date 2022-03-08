@@ -58,7 +58,7 @@ height: 300px;
 	width: 30%;
 	position: relative;
 	right: 220px;
-	bottom: 90px;
+	bottom: 80px; 
 }
 
 .basket-img {
@@ -72,7 +72,7 @@ height: 300px;
 	width: 30%;
 	position: relative;
 	left: 5px;
-	bottom: 304px;
+	bottom: 288px; 
 	
 }
 
@@ -87,8 +87,9 @@ height: 300px;
 	width: 30%;
 	position: relative;
 	left: 285px;
-	bottom: 623px;
-}
+	bottom: 567px;
+	 
+} 
 
 .basket-price {
 	width: 30%;
