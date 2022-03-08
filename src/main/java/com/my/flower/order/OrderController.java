@@ -32,7 +32,7 @@ public class OrderController {
 //	결제 페이지
 	@RequestMapping(value = "/order/PayPage")
 	@ResponseBody
- 	public ModelAndView orderPayPage( Model model,CommandMap commandMap, HttpServletRequest request ,String GOODS_OP2,String GOODS_OP3,String GOODS_OP4 ) throws Exception {
+ 	public ModelAndView orderPayPage( Model model,CommandMap commandMap, HttpServletRequest request, String GOODS_PRICE ,String GOODS_OP2,String GOODS_OP3,String GOODS_OP4 ) throws Exception {
 
 		ModelAndView mv = new ModelAndView("userPayPage");
 		List<Map<String, Object>> orderPayPage = orderService.orderPayPage(commandMap.getMap());
@@ -40,7 +40,8 @@ public class OrderController {
 		
 
 
-	// 보낸 값 받아서 저장하고 
+	// 보낸 값 받아서 저장하고
+		String goodsprice = request.getParameter("GOODS_PRICE");
 		String op2 = request.getParameter("GOODS_OP2");
 		String op3 = request.getParameter("GOODS_OP3");
 		String op4 = request.getParameter("GOODS_OP4");
@@ -49,7 +50,7 @@ public class OrderController {
 		mv.addObject("op4", op4);
 		mv.addObject("op3", op3);
 		mv.addObject("op2", op2);
-
+		mv.addObject("goodsprice",goodsprice);
 		mv.addObject("orderPayPage", orderPayPage);
 		mv.addObject("orderMember", orderMember);
 		return mv;
@@ -88,16 +89,6 @@ public class OrderController {
 		return mv;
 
 	}
-	
-	
-	@RequestMapping(value = "/order/Delete")
-	@ResponseBody
-	public ModelAndView basketDelete(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("basket");// .jsp
-	 basketService.basketDelete(commandMap.getMap()); // 이게 맵으로 받아온 값을 basketPut으로 넣는다는
-		return mv; // 리턴
-	}
-
 	
 	
 	

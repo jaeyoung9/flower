@@ -67,6 +67,26 @@
 	bottom: -90px;
 }
 
+.goodsSum {
+	position: relative;
+	display: block;
+	top: 50px;
+}
+
+.goodsSum-name {
+	position: relative;
+	display: block;
+	bottom: 159px;
+	right: 210px;
+}
+
+.goodsPrice-name {
+	position: relative;
+	display: block;
+	bottom: 79px;
+	right: 210px;
+}
+
 .goodsDetailImg {
 	padding-top: 0px;
 	position: relative;
@@ -89,29 +109,9 @@
 }
 </style>
 </head>
-<body>
+<body onload="init();">
 	<div class="goodsDetail">
-
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br> <input type="hidden" id="USER_ID" value="${USER_ID}">
+		<input type="hidden" id="USER_ID" value="${USER_ID}">
 		<%-- 아이디 히든으로 숨김 --%>
 		<c:forEach items="${goodsSaleDetail}" var="goodsSaleDetail">
 
@@ -124,9 +124,31 @@
 				<ul>
 					<li class="goodsDetailtitle">${goodsSaleDetail.GOODS_TITLE}</li>
 					<li class="goodsDetailli">${goodsSaleDetail.GOODS_CONTENT}</li>
-					<li class="goodsDetailprice"><fmt:formatNumber
-							value="${goodsSaleDetail.GOODS_PRICE}" pattern="#,###" />원</li>
-
+					<li class="goodsDetailprice">
+					<li><select id="GOODS_OP4">
+							<c:forEach items="${list11}" var="list11">
+								<option value="${list11}">${list11}</option>
+							</c:forEach>
+					</select> <select id="GOODS_OP3">
+							<c:forEach items="${list12}" var="list12">
+								<option value="${list12}">${list12}</option>
+							</c:forEach>
+					</select> <select id="GOODS_OP2" onchange="init();">
+							<c:forEach items="${list13}" var="list13">
+								<option name="op" onclick="op();" value="${list13}">${list13}</option>
+							</c:forEach>
+					</select></li>
+					<form class="goodsSum" name="form" method="get">
+						<input type=hidden name="sell_price"
+							value="${goodsSaleDetail.GOODS_PRICE}"> <input
+							type="text" name="amount" value="1" size="3" onchange="change();"><br>
+						<input type="button" value=" + " onclick="add();"> <input
+							type="button" value=" - " onclick="del();"><br> <input
+							type="text" id="GOODS_PRICE" name="sum" size="13" readonly>
+					</form>
+					</li>
+					<li class="goodsSum-name">수량</li>
+					<li class="goodsPrice-name">가격</li>
 				</ul>
 				<div class="goodsDetail-btn">
 					<button class="w-btn w-btn-pink" type="button" id="put"
@@ -139,10 +161,8 @@
 					value="${goodsSaleDetail.GOODS_INDEX}"> <input
 					type="hidden" id="GOODS_TITLE"
 					value="${goodsSaleDetail.GOODS_TITLE}"> <input
-					type="hidden" id="GOODS_PRICE"
-					value="${goodsSaleDetail.GOODS_PRICE}"> <input
 					type="hidden" id="GOODS_OP1" value="${goodsSaleDetail.GOODS_OP1}">
-				
+
 			</div>
 			<div class="goodsDetailImg">
 				<a><img src="../../images/${goodsSaleDetail.STORED_FILE_IMG} "
@@ -152,23 +172,9 @@
 			</div>
 		</c:forEach>
 
-		<!-- op. -->
-		<li class="goodsDetailoption"><select id="GOODS_OP4">
-				<c:forEach items="${list11}" var="list11">
-					<option id="GOODS_OP4" value="${list11}">${list11}</option>
-				</c:forEach>
-		</select> <select id="GOODS_OP3">
-				<c:forEach items="${list12}" var="list12">
-					<option id="GOODS_OP3" value="${list12}">${list12}</option>
-				</c:forEach>
-		</select> <select id="GOODS_OP2">
-				<c:forEach items="${list13}" var="list13">
-					<option id="GOODS_OP2" value="${list13}">${list13}</option>
-				</c:forEach>
-		</select></li>
-		
-		
-		
+
+
+
 
 		<%-- 리뷰 --%>
 		<div class="goodsDetailreviewtitle">
@@ -181,8 +187,8 @@
 				<a style="line-height: 30px;"
 					href="/flower/reviewDetail?ORDER_NUM=${review.ORDER_NUM}&GOODS_INDEX=${review.GOODS_INDEX}"
 					id="ReviewDetail"> <img
-					src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdh0ZzI%2FbtruuiD3Elb%2FzyvabSbYc5JYubPjBDRoT0%2Fimg.jpg"
-					height="100" width="140" /></a>
+					src='../../images/${review.STORED_FILE_REVIEW}' height="100"
+					width="140" /></a>
 			</div>
 			<div class="goodsDetailreview">
 				<a style="line-height: 30px;"
@@ -192,12 +198,6 @@
 			<div class="gdhr">
 				<hr>
 			</div>
-		</c:forEach>
-		<br> <br> <br>
-		<%-- 리뷰 답변 --%>
-		관리자 답변<br>
-		<c:forEach items="${reviewRe}" var="reviewRe">
-	${reviewRe.REVIEW_RE_CONTENT}	<br>
 		</c:forEach>
 
 
@@ -252,17 +252,13 @@
 			success : function(data) {
 
 				location.href = "/flower/order/PayPage?GOODS_INDEX="
-						+ $("#GOODS_INDEX").val() 
-						+ "&USER_ID="
-						+ $("#USER_ID").val()
-						+ "&GOODS_OP2="
-				+ $("#GOODS_OP2 option:selected").val()
-				+ "&GOODS_OP3="
-				+ $("#GOODS_OP3 option:selected").val()
-				+ "&GOODS_OP4="
-				+ $("#GOODS_OP4 option:selected").val(); 
-				
-				
+						+ $("#GOODS_INDEX").val() + "&USER_ID="
+						+ $("#USER_ID").val() + "&GOODS_OP2="
+						+ $("#GOODS_OP2 option:selected").val() + "&GOODS_OP3="
+						+ $("#GOODS_OP3 option:selected").val() + "&GOODS_OP4="
+						+ $("#GOODS_OP4 option:selected").val()
+						+ "&GOODS_PRICE=" + $("#GOODS_PRICE").val();
+
 			},
 			error : function(request, status, error) {
 
@@ -275,45 +271,68 @@
 		//  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
 	}
 </script>
+<script type="text/javascript">
+	//변경된 값을 저장
+	var sell_price;
+	var amount;
+
+	//init 초기값을 지정할 수 있다.
+	function init() {
+		sell_price = document.form.sell_price.value;
+		amount = document.form.amount.value;
+		document.form.sum.value = sell_price;
+
+		change();
+	}
+
+	function change() {
+		hm = document.form.amount;
+		sum = document.form.sum;
+		var string = $("#GOODS_OP2 option:selected").val();
+		var strArray = Number(string.substr(0, 1));
+
+		if (hm.value < 0) {
+			hm.value = 0;
+
+		}
+		//alert( strArray + strArray);
+		sum.value = parseInt(hm.value) * sell_price * strArray;
+	}
+
+	// add
+	//howmany 값을 1 증가 시키고, 합계를 계산.
+	function add() {
+		hm = document.form.amount;
+		sum = document.form.sum;
+		hm.value++;
+
+		sum.value = parseInt(hm.value) * sell_price;
+
+	}
+
+	// del
+
+	// howmany 값을 1 감소 시키고, 합계를 계산.
+
+	function del() {
+
+		hm = document.form.amount;
+
+		sum = document.form.sum;
+
+		// 에러 처리 : 음수 값
+
+		if (hm.value > 1) {
+
+			hm.value--;
+
+			sum.value = parseInt(hm.value) * sell_price;
+
+		}
+
+	}
+//-->
+</script>
+
+
 </html>
-
-<%-- /* function ReviewDetail(){
-    $.ajax({
-        url : "<c:url value='/reviewDetail'/>",
-        type : "POST",
-        dataType :"TEXT",
-        data : {"ORDER_NUM" :  $("#ORDER_NUM").val(), "GOODS_INDEX" : $("#GOODS_INDEX").val()},
-        // 정보 넘기기때 사용할 이름: $("jsp로받아올값").val() 일단 user_id 는 flower
-        success : function (data) {
-        	let url = "/flower/reviewDetail?ORDER_NUM="+$("#ORDER_NUM").val()+"&GOODS_INDEX="+$("#GOODS_INDEX").val();
-        	//location.href="/flower/order/PayPage2?BASKET_INDEX="+num+"&USER_ID="+$("#USER_ID").val();
-        	location.replace(url);
-                }
-
-    })
- // 
-  //  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
-}  */
-/* 
-$(document).ready(function(){
-	$(document).on('click','#ReviewDetail', function(){
- 		if(true){
- 	 		$("input:hidden[name=ORDER_NUM]:checked").each(function(){
- 	 	 		var tr = $(this).closest("tr").index();
- 				var num = $('#tbody tr').eq(tr).find('#ORDER_NUM').val();
- 				$.ajax({
- 	 				type: "POST",
- 	 				url:"<c:url value='/reviewDetail'/>",
- 	 				dataType : "text",JSON 
- 	 				data:{"GOODS_INDEX" : $('#GOODS_INDEX').val(),
- 	 					"ORDER_NUM":num},
- 	 					success : function(data) {
- 	 						location.href="/flower/reviewDetail?ORDER_NUM="+num+"&GOODS_INDEX="+$("#GOODS_INDEX").val();
- 	 					}
- 	 	        });
- 	 	        
- 	 		});
- 	 	}
- 	});
-});
-  --%>

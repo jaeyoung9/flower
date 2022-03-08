@@ -59,9 +59,9 @@ line-height: 15px;
 				</div>
 			</div>
 
-			<label>옵션2</label> <span class="box"><input type="text" class="int" id="GOODS_OP2"></span>  <br>
-			<label>옵션3</label> <span class="box"><input type="text" class="int" id="GOODS_OP3"></span>  <br> 
-			<label>옵션4</label> <span class="box"><input type="text" class="int" id="GOODS_OP4"></span>  <br>
+			<label>옵션2 month.</label> <span class="box"><input type="text" class="int" id="GOODS_OP2"></span>  <br>
+			<label>옵션3 color.</label> <span class="box"><input type="text" class="int" id="GOODS_OP3"></span>  <br> 
+			<label>옵션4 size.</label> <span class="box"><input type="text" class="int" id="GOODS_OP4"></span>  <br>
 
 
 

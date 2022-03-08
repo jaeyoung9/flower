@@ -67,17 +67,20 @@ margin: auto;
 <div>
 <ul>
 <li class="paypageli">${orderPage.GOODS_TITLE}</li><br>
-<li class="paypageli3"><fmt:formatNumber value="${orderPage.GOODS_PRICE}" pattern="#,###"/>원</li>
+<li class="paypageli3"></li>
 </ul>
 </div>
 		<input type="hidden" class="int" id="GOODS_INDEX" value="${orderPage.GOODS_INDEX}">
 		<input type="hidden" class="int" id="GOODS_TITLE" value="${orderPage.GOODS_TITLE}">
-		<input type="hidden" class="int" id="GOODS_PRICE" value="${orderPage.GOODS_PRICE}">
 		<input type="hidden" class="int" id="GOODS_OP1" value="${orderPage.GOODS_OP1}">
 	</c:forEach>
 </div>	
 <!-- OP1 -->
 <div class="paypageli3">
+<c:forEach items="${goodsprice}" var="goodsprice">
+<input type="hidden" class="int" id="GOODS_PRICE" value="${goodsprice}">
+${goodsprice}<br>
+</c:forEach>
 <c:forEach items="${op2}" var="op2">
 ${op2}
 <input type="hidden" class="int" id="GOODS_OP2" value="${op2}"><br>
