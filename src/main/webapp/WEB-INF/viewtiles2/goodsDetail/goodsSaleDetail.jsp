@@ -172,10 +172,6 @@
 			</div>
 		</c:forEach>
 
-
-
-
-
 		<%-- 리뷰 --%>
 		<div class="goodsDetailreviewtitle">
 			<span
