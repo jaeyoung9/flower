@@ -273,7 +273,7 @@
 		})
 		// 
 		//  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
-	}
+	}z
 </script>
 </html>
 
