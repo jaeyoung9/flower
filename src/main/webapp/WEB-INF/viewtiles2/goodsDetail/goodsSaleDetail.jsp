@@ -269,7 +269,7 @@
 		})
 		// 
 		//  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
-	}
+	}z
 </script>
 <script type="text/javascript">
 	//변경된 값을 저장
