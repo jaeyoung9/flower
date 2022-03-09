@@ -11,213 +11,168 @@
 text-align: center;
 }
 /* 노말라이즈 */
-body, html {
-    overflow-x:hidden;
+body
+{
+  background-color:#fff;
+  
 }
-body, ul, li {
-width: 100%;
-justify-content: center;
-display: block;
-    padding:0;
-    margin:0;
-    list-style:none;
+.wrap
+{
+  margin:50px auto 0 auto;
+  width:100%;
+  display:flex;
+  align-items:space-around;
+  max-width:1200px;
 }
-a {
-    text-decoration:none;
-    color:inherit;
+.tile
+{
+  width:380px;
+  height:380px;
+  margin:10px;
+  background-color:#fff;
+  
+  display:inline-block;
+  background-size:cover;
+  position:relative;
+  cursor:pointer;
+  transition: all 0.4s ease-out;
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
+  overflow:hidden;
+  color:white;
+  font-family:'Roboto';
+  
 }
-/* 노말라이즈 끝 */
+.tile img
+{
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  transition: all 0.4s ease-out;
+}
+.tile .text
+{
+/*   z-index:99; */
+  position:absolute;
+  padding:30px;
+  height:calc(100% - 60px);
+}
+.tile h1
+{
+ 
+  font-weight:300;
+  margin:0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.tile h2
+{
+  font-weight:100;
+  margin:20px 0 0 0;
+  font-style:italic;
+   transform: translateX(200px);
+}
+.tile p
+{
+  font-weight:300;
+  margin:20px 0 0 0;
+  line-height: 25px;
+/*   opacity:0; */
+  transform: translateX(-200px);
+  transition-delay: 0.2s;
+}
+.animate-text
+{
+  opacity:0;
+  transition: all 0.6s ease-in-out;
+}
+.tile:hover
+{
+/*   background-color:#99aeff; */
+box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
+  transform:scale(1.05);
+}
+.tile:hover img
+{
+  opacity: 0.2;
+}
+.tile:hover .animate-text
+{
+  transform:translateX(0);
+  opacity:1;
+}
+.dots
+{
+  position:absolute;
+  bottom:20px;
+  right:30px;
+  margin: 0 auto;
+  width:30px;
+  height:30px;
+  color:currentColor;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-around;
+  
+}
 
-/* 라이브러리 */
-/* 상단 로고 및 메뉴 */
-.con {
-    max-width:1000px;
-    margin:0 auto;
-}
-
-/* 배너 및 상품 목록 */
-.img-box > img {
-    width:100%;
+.dots span
+{
+    width: 5px;
+    height:5px;
+    background-color: currentColor;
+    border-radius: 50%;
     display:block;
-}
-.row::after {
-    content:"";
-    display:block;
-    clear:both;
-}
-.row .cell{
-
-    float:left;
-    box-sizing:border-box;
+  opacity:0;
+  transition: transform 0.4s ease-out, opacity 0.5s ease;
+  transform: translateY(30px);
+ 
 }
 
-/* 커스텀 */
-.bn-box-1 {
-    margin-top:20px;
+.tile:hover span
+{
+  opacity:1;
+  transform:translateY(0px);
 }
 
-/* 상품 정렬 */
-.list-box-1 .cell {
-width: 50%;
-display: block;
-justify-content: center;
-    padding:0 10px;
-    margin-top:20px;
-    cursor:pointer;
+.dots span:nth-child(1)
+{
+   transition-delay: 0.05s;
 }
-.list-box-1 .row {
-    margin:0 -10px;
+.dots span:nth-child(2)
+{
+   transition-delay: 0.1s;
 }
-
-/* 상품 제목 및 가격 */
-.list-box-1 .cell > .prod-name, .list-box-1 .cell > .prod-price {
-    text-align:center;
-    font-weight:bold;
-    margin-top:5px;
-}
-.list-box-1 .cell > .prod-price {
-    font-size:1.2rem;
+.dots span:nth-child(3)
+{
+   transition-delay: 0.15s;
 }
 
-.list-box-1 .cell:hover > .prod-name, .list-box-1 .cell:hover > .prod-price {
-    color:red;
-}
 
-/* 기타 효과 */
-.list-box-1 .cell > .img-box > img {
-    transition:transform 1s;
+@media (max-width: 1000px) {
+  .wrap {
+   flex-direction: column;
+    width:400px;
+  }
 }
-.list-box-1 .cell:hover > .img-box > img {
-    transform:scale(1.25);
-}
-.list-box-1 .cell > .img-box {
-    overflow:hidden;
-    position:relative;
-}
-.list-box-1 .cell > .img-box > .ico-view {
-    color:white;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translatex(-50%) translatey(-50%);
-    opacity:0;
-    transition:opacity 1s;
-    z-index:1;
-    border:2px solid white;
-    border-radius:10px;
-    padding:5px;
-}
-.list-box-1 .cell > .img-box > .ico-view:after {
-    content:"VIEW";
-    padding-left:5px;
-}
-.list-box-1 .cell:hover > .img-box > .ico-view {
-    opacity:1;
-}
-.list-box-1 .cell:hover > .img-box::before {
-    opacity:1;
-}
-.list-box-1 .cell > .img-box::after {
-    content:"";
-    background-color:rgba(0,0,0,0);
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    transition:background-color 1s;
-}
-.list-box-1 .cell:hover > .img-box::after {
-    background-color:rgba(0,0,0,0.5);
-}
-/* 무료배송 */
-.list-box-1 .cell > .free-del {
-    text-align:center;
-    margin-top:12px;
-}
-.list-box-1 .cell > .free-del > span::after {
-    content:"무료배송";
-    font-size:0.8rem;
-    border:1px solid red;
-    color:red;
-    padding:4px;
-}
-/* 반응형 사이즈 */
-@media (max-width:600px) {
-    .bn-box-1 > .img-box {
-        margin-left:-50%;
-    }
-}
-@media (min-width:1001px){
-    .list-box-1 .cell:nth-child(5n + 1) {
-        clear:both;
-    }
-}
-@media (max-width:1000px) and (min-width:801px) {
-    .list-box-1 .cell {
-        width:25%;
-    }
-    .list-box-1 .cell:nth-child(4n + 1) {
-        clear:both;
-    }
-}
-@media (max-width:800px) and (min-width:601px) {
-    .list-box-1 .cell {
-        width:33.3333%;
-    }
-    .list-box-1 .cell:nth-child(3n + 1) {
-        clear:both;
-    }
-}
-@media (max-width:600px) and (min-width:401px) {
-    .list-box-1 .cell {
-        width:50%;
-    }
-    .list-box-1 .cell:nth-child(2n + 1) {
-        clear:both;
-    }
-}
-@media (max-width:400px) and (min-width:0px) {
-    .list-box-1 .cell {
-        width:100%;
-    }
-}
-@media (max-width:1000px) {
-    .menu-box-1 {
-        display:none;
-    }
-}
-@media (max-width:1000px) {
-    .menu-box-1-m > img, .share > img {
-        display:block;
-    }
-}
-/* 커스텀 끝 */
-/* 하단 */
-.copy {
-    text-align:center;
-    padding:30px;
-    background-color:#dfdfdf;
-    margin-top:70px;
-    font-weight:bold;
-    }
 </style>
 </head>
 <body>
-<div>
-		<table>
-			
 
+
+	<div>
+	<div class="wrap">
+		<table>
 			<tbody>
-<div class="bn-box-1 con">
-    <div class="img-box"><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb6wQWU%2Fbtruok4bOZc%2FAAZuqKYKU1Fk6KG2XO3360%2Fimg.jpg' 
-    height='300' width='450'/>
-    </div>
-    </div>
-    
+
+
+
 			</tbody>
 		</table>
-	
+</div>
+
     
     
 <div class="PAGE_NAVI" id="PAGE_NAVI"></div>  <!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통할수를 이용해 페이징 태그가 작성됨.) -->
@@ -288,42 +243,35 @@ justify-content: center;
 			var str = "";
 			//data.list가 서버에서 보내준 데이터, 이를 이용해서 jQuery의 .each함수를 사용하여 HTML태그를 만들어준다.
 			$.each(data.list, function(key, value) {
-				str += "<div class='list-box-1 con'>"
-                    + "<ul class='row'>"
-                    + "<li class='cell'>"
-                    + "<div class='img-box'>"
-                    + "<a href='#this' name='title'>" + "</a>"
+				str += "<div class='tile'>"
+                    
+                    + "<a href='#this' name='title'>" 
                     + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.GOODS_INDEX + ">"
                     + " <img src='../images/"+value.STORED_FILE_THUMB +"'height='300' width='450'/>"
-                    + "<div class='ico-view'>"
-                    + "<i class='fas fa-search'>"
-                    + "</i>"
-                    + "</div>"
-                    + "</div>"
-                    
-                    + "<div class='prod-name'>"
-                    + "<p>"
+                    + "</a>"
+                    + "<div class='text'>"
+                    + "<p class='animate-text'>"
                     + "<a href='#this' name='title'>" + value.GOODS_TITLE + "</a>"
                     + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.GOODS_INDEX + ">"
                     + "</p>"
                     
-                    + "<p>"
+                    + "<p class='animate-text'>"
                     + "<a href='#this' name='title'>" + value.GOODS_CONTENT+ "</a>"
                     + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.GOODS_INDEX + ">"
-                    
                     + "</p>"
-                    + "</div>"
-                    + "<div class='prod-price'>"
-                    + "<p>"
+                    + "<p class='animate-text'>"
                     + "<a href='#this' name='title'>" + value.GOODS_PRICE + '원' + "</a>"
                     + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.GOODS_INDEX + ">"
                     + "</p>"
+                    + "<div class='dots'>"
+                    + "<span>"
+                    + "</span>"
+                    + "<span>"
+                    + "</span>"
+                    + "<span>"
+                    + "</span>"
+                   + "</div>"
                     + "</div>"
-                    + "<div class='free-del'>" + "<span>" + "</span>" + "</div>"
-                    
-                    + "</li>"
-                
-                    + "</ul>"
                     + "</div>";
 
         });
