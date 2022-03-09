@@ -101,6 +101,76 @@ height: 300px;
 .basketbutton {
 	position: relative;
 }
+
+
+
+label {
+  position: relative;
+}
+
+label input[type="checkbox"] {
+  opacity: 0;
+  display: none;
+}
+
+.check {
+  display: block;
+  width: 40px;
+  height: 20px;
+  border: 1px solid #222;
+  border-radius: 40px;
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+label input[type="checkbox"]:checked ~ .check {
+  border: 1px solid #fff;
+}
+
+.check:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px #222;
+  transition: 0.5s;
+}
+
+label input[type="checkbox"]:checked ~ .check:before {
+  box-shadow: inset 0 0 0 1px #fff;
+  background: #fff;
+  transform: translateX(20px);
+}
+
+.text {
+  display: block;
+  position: absolute;
+  top: 10;
+  right: -40px;
+  width: 40px;
+  font-size: 20px;
+  transition: 0.5s;
+  font-weight: bold;
+  color: #222;
+}
+
+.text.on {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+label input[type="checkbox"]:checked ~ .text.on {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+label input[type="checkbox"]:checked ~ .text.off {
+  transform: translateY(-20px);
+  opacity: 0;
+} 
 </style>
 
 </head>
@@ -116,9 +186,13 @@ height: 300px;
 				<tr align="center" id="row">
 					<td><label class="basket-ck-name">선 택</label> <br>
 						<div class="basket-ck">
-
-							<input class="INDEX" type="checkbox" name="BASKET_INDEX"
+<label>
+       <input class="INDEX" type="checkbox" name="BASKET_INDEX"
 								id="BASKET_INDEX">
+        <span class="check"></span>
+        <span class="text on">On</span>
+        <span class="text off">Off</span>
+    </label>
 						</div> <label class="basket-img-name">상 품</label>
 						<div class="basket-img">
 
