@@ -86,9 +86,7 @@ input::-moz-focus-inner {
 
 input, select, textarea {
 	-moz-appearance: none;
-	-webkit-appearance: none;
 	-ms-appearance: none;
-	appearance: none;
 }
 
 /* Basic */
@@ -1893,16 +1891,19 @@ input, select, textarea {
 
 		ol li {
 			padding-left: 0.25em;
+			list-style: none;
 		}
 
 	ul {
 		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
+		list-style: none;
 	}
 
 		ul li {
 			padding-left: 0.5em;
+			list-style: none;
 		}
 
 		ul.alt {
@@ -2219,7 +2220,6 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 3em;
 	}
 
 	textarea {
@@ -2229,16 +2229,11 @@ input, select, textarea {
 
 	input[type="checkbox"],
 	input[type="radio"] {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
 		display: block;
 		float: left;
 		margin-right: -2em;
-		opacity: 0;
 		width: 1em;
-		z-index: -1;
+		z-index: 1;
 	}
 
 		input[type="checkbox"] + label,
@@ -2412,8 +2407,7 @@ input, select, textarea {
 			}
 
 		table td {
-			padding: 0.75em 0.75em;
-		}
+				}
 
 		table th {
 			font-size: 0.9em;
