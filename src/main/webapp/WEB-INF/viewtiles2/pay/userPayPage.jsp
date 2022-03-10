@@ -79,7 +79,8 @@ margin: auto;
 <div class="paypageli3">
 <c:forEach items="${goodsprice}" var="goodsprice">
 <input type="hidden" class="int" id="GOODS_PRICE" value="${goodsprice}">
-${goodsprice}<br>
+<fmt:formatNumber value="${goodsprice}" pattern="#,###"/>원 <br>
+
 </c:forEach>
 <c:forEach items="${op2}" var="op2">
 ${op2}

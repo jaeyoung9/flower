@@ -144,9 +144,10 @@
 						<input type=hidden name="sell_price"
 							value="${goodsSubDetail.GOODS_PRICE}"> <input type="text"
 							name="amount" value="1" size="3" onchange="change();"><br>
-						<input type="button" value=" + " onclick="add();"> <input
-							type="button" value=" - " onclick="del();"><br> <input
-							type="text" id="GOODS_PRICE" name="sum" size="13" readonly>
+						<input type="button"  value=" + " onclick="add();"> <input
+							type="button"  value=" - " onclick="del();"><br> 
+							<input type="text" id="GOODS_PRICE" name="sum" size="13" readonly>
+							
 					</form>
 					</li>
 				
@@ -203,6 +204,21 @@
 	</div>
 </body>
 <script type="text/javascript">
+
+function inputNumberFormat(obj) {
+    obj.value = comma(uncomma(obj.value));
+}
+
+function comma(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
+
+function uncomma(str) {
+    str = String(str);
+    return str.replace(/[^\d]+/g, '');
+}
+
 	function basket_put() {
 		$.ajax({
 			url : "<c:url value='/basket/put'/>",
