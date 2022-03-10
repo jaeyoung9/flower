@@ -188,7 +188,7 @@ line-height: 15px;
 																	data) {
 																console
 																		.log('jQeury ajax form submit success');
-																alert("업로드완료");
+															
 															},
 															error : function(
 																	data) {
@@ -238,7 +238,7 @@ line-height: 15px;
 					},
 					success : function(data) {
 						console.log('jQeury ajax form submit success');
-						alert("업로드완료");
+						
 					},
 					error : function(data) {
 						console.log('jQeury ajax form submit error');

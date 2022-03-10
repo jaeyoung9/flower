@@ -51,13 +51,17 @@ ORDER_NUM = #{ORDER_NUM}
 	</select>
 
 	<!-- 리뷰 상세페이지 -->
-	<select id="reviewDetail" parameterType="hashmap" resultType="hashmap"> 
+	<select id="reviewDetail" parameterType="hashmap"
+		resultType="hashmap"> 
 <![CDATA[ 
 select
+R.user_id,
 R.review_date,
 R.STORED_FILE_REVIEW,
 R.review_content,
-R.review_INDEX
+R.review_INDEX,
+O.order_num,
+G.goods_index
 
 from 
 TB_REVIEW R, TB_ORDER O, TB_GOODS G
@@ -67,7 +71,18 @@ R.ORDER_NUM = O.ORDER_NUM AND O.ORDER_NUM = #{ORDER_NUM} AND G.GOODS_INDEX =#{GO
 ]]>
 	</select>
 
-<!-- 관리자 답변 작성 -->
+	<!-- 리뷰 삭제 -->
+	<delete id="reviewDelete" parameterType="hashmap">
+<![CDATA[
+DELETE
+FROM
+TB_REVIEW
+WHERE
+ORDER_NUM = #{ORDER_NUM} AND GOODS_INDEX = #{GOODS_INDEX} AND REVIEW_INDEX = #{REVIEW_INDEX}
+]]>
+	</delete>
+
+	<!-- 관리자 답변 작성 -->
 	<insert id="reviewReWrite" parameterType="hashmap"> 
 <![CDATA[ 
 insert into tb_review_re(
@@ -82,8 +97,9 @@ insert into tb_review_re(
 ]]>
 	</insert>
 
-<!-- 관리자 답변 상세 -->
-<select id="reviewReDetail" parameterType="hashmap" resultType="hashmap">
+	<!-- 관리자 답변 상세 -->
+	<select id="reviewReDetail" parameterType="hashmap"
+		resultType="hashmap">
 	<![CDATA[
 select
 L.review_re_date,
@@ -96,9 +112,9 @@ where
 R.ORDER_NUM = O.ORDER_NUM AND O.ORDER_NUM = #{ORDER_NUM} AND R.REVIEW_INDEX = L.REVIEW_INDEX AND G.GOODS_INDEX = #{GOODS_INDEX}
 ]]>
 	</select>
-	
-<!-- 관리자 답변 삭제 -->
-<delete id="reviewReDelete" parameterType="hashmap">
+
+	<!-- 관리자 답변 삭제 -->
+	<delete id="reviewReDelete" parameterType="hashmap">
 <![CDATA[
 DELETE
 FROM
@@ -106,6 +122,6 @@ TB_REVIEW_RE
 WHERE
 REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
-</delete>
-	
+	</delete>
+
 </mapper>
