@@ -149,8 +149,7 @@
 							type="text" id="GOODS_PRICE" name="sum" size="13" readonly>
 					</form>
 					</li>
-					<li class="goodsSum-name">수량</li>
-					<li class="goodsPrice-name">가격</li>
+				
 				</ul>
 				<div class="goodsDetail-btn">
 					<button class="w-btn w-btn-pink" type="button" id="put"

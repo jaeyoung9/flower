@@ -190,8 +190,8 @@ label input[type="checkbox"]:checked ~ .text.off {
        <input class="INDEX" type="checkbox" name="BASKET_INDEX"
 								id="BASKET_INDEX">
         <span class="check"></span>
-        <span class="text on">On</span>
-        <span class="text off">Off</span>
+        <span class="text on">N</span>
+        <span class="text off">F</span>
     </label>
 						</div> <label class="basket-img-name">상 품</label>
 						<div class="basket-img">

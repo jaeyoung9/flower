@@ -172,7 +172,7 @@ header {
   transition: 0.5s;
 }
 
-ul {
+.headerui {
   position: relative;
   margin: 0;
   padding: 0;
@@ -181,11 +181,11 @@ ul {
   transition: 0.5s;
 }
 
-ul li {
+.headerui li {
   list-style: none;
 }
 
-ul li a {
+.headerui li a {
   position: relative;
   display: block;
   padding: 10px 20px;
@@ -197,7 +197,7 @@ ul li a {
   transition: 0.5s;
 }
 
-ul li a:hover {
+.headerui li a:hover {
   background: #000;
   color: #fff;
 }
@@ -225,15 +225,15 @@ ul li a:hover {
     padding: 0 0;
     background: rgba(255, 255, 255, 0.5);
   }
-  header ul {
+  header .headerui {
     width: 100%;
     display: none;
   }
-  header ul.active {
+  header .headerui.active {
     display: block;
   }
 
-  header ul li a {
+  header .headerui li a {
     margin: 0;
     display: block;
     text-align: center;
@@ -256,7 +256,7 @@ ul li a:hover {
                 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FBVqz1%2FbtrubK2Yr7T%2FZI5KqbGaUxiHR8OdSjtBvK%2Fimg.png" alt="logo">
             </a>
             <a class="toggle">📁</a>
-            <ul class="">
+            <ul class="headerui">
                 <c:choose>
 						<c:when test="${USER_ID != null}">
 														<div class="">

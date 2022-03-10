@@ -237,7 +237,7 @@ TB_GOODS_SEQ.NEXTVAL,
 <![CDATA[ 
             
             
-       select * from TB_GOODS
+       select * from TB_GOODS WHERE GOODS_OP1 = '일반' OR GOODS_OP1 = '구독'
       
  
 ]]>

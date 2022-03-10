@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>이달의꽃 - 구독</title>
 <style type="text/css">
+
 .PAGE_NAVI{
 text-align: center;
 }
