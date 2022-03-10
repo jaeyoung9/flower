@@ -166,8 +166,7 @@
 					type="hidden" id="GOODS_OP1" value="${goodsSubDetail.GOODS_OP1}">
 			</div>
 			<div class="goodsDetailImg">
-				<a><img src="../../images/${goodsSubDetail.STORED_FILE_IMG} "
-					height="500" width="910" /></a>
+				<a><img src="../../images/${goodsSubDetail.STORED_FILE_IMG} "/></a>
 			</div>
 		</c:forEach>
 

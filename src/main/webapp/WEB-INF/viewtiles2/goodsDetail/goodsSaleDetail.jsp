@@ -164,8 +164,7 @@
 
 			</div>
 			<div class="goodsDetailImg">
-				<a><img src="../../images/${goodsSaleDetail.STORED_FILE_IMG} "
-					height="500" width="910" /></a>
+				<a><img src="../../images/${goodsSaleDetail.STORED_FILE_IMG} " /></a>
 
 
 			</div>
