@@ -453,7 +453,7 @@ html, body {
 		</a>
 		<a class="card-description" href="#this" target="_blank">
 			<h2>${list.GOODS_TITLE}</h2>
-			<p>${list.GOODS_PRICE}</p>
+			<p><fmt:formatNumber value="${list.GOODS_PRICE}" pattern="#,###"/>원</p>
 		</a>
 	</li>
 	
