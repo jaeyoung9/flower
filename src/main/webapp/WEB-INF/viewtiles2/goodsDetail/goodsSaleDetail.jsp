@@ -21,8 +21,8 @@
 
 .goodsDetailthum {
 	margin-top: 100px;
-	right: 320px;
-	top: 70px;
+	right: 420px;
+	top: 90px;
 	position: relative;
 }
 
