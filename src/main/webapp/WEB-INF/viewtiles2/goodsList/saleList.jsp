@@ -215,7 +215,7 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
 		comAjax.setUrl("<c:url value='/goods/goodsSaleList'/>");
 		comAjax.setCallback("fn_goodsSaleListCallback"); //ajax요청이 완료된 후 호출될 함수의 이름을 지정
 		comAjax.addParam("PAGE_INDEX", pageNo);  //현재 페이지 번호
-		comAjax.addParam("PAGE_ROW", 5);  //한페이지에 보여줄 행(데이터)의 수
+		comAjax.addParam("PAGE_ROW", 6);  //한페이지에 보여줄 행(데이터)의 수
 		comAjax.ajax();
 	}
 	
