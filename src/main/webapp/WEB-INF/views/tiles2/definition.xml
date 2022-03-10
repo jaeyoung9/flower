@@ -83,6 +83,18 @@
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/find/findPw.jsp" />
 			</definition>	
+			
+			<definition name="findIdResult" extends="base_layout">
+				<!-- <put-attribute name="title" value="아이디찾기" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/find/findIdResult.jsp" />
+			</definition>
+			<definition name="findPwResult" extends="base_layout">
+		<!-- 		<put-attribute name="title" value="비밀번호찾기" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/find/findPwResult.jsp" />
+			</definition>
+			
 			<!--아이템리스트  -->
 			<definition name="saleList" extends="base_layout">
 		<!-- 		<put-attribute name="title" value="일반리스트" /> -->
@@ -175,6 +187,19 @@
 			<!-- 	<put-attribute name="title" value="주문내역" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/amin/userList.jsp" />
+			</definition>
+			
+			
+			<definition name="insertgoodsimgPage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="주문내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/insertgoodsimgPage.jsp" />
+			</definition>
+			
+			<definition name="insertgoodsthumbPage" extends="base_layout">
+			<!-- 	<put-attribute name="title" value="주문내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/insertgoodsthumbPage.jsp" />
 			</definition>
 			
 </tiles-definitions>
