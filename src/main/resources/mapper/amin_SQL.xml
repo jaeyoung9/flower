@@ -80,9 +80,9 @@ ORDER_NUM = #{ORDER_NUM}
 
 <![CDATA[   
 
-
 SELECT * FROM
 TB_GOODS
+WHERE GOODS_OP1 = '일반' OR GOODS_OP1 = '구독'
 ]]> 
 
 </select> 

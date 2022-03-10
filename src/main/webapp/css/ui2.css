@@ -1,4 +1,26 @@
+.pad_5 {
+	padding:5px;
+}
 
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius:50%;
+}
+
+.pagination a.active {
+  background-color: tomato;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: silver;}
 /* 노말라이즈 */
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
@@ -163,7 +185,6 @@ input, select, textarea {
 		transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		text-decoration: none;
 		color: #585858;
-		border-bottom: dotted 1px rgba(88, 88, 88, 0.5);
 	}
 
 		a:hover {
