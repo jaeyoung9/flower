@@ -1,0 +1,372 @@
+alter system set sec_case_sensitive_logon=false 
+--대소문자 구별
+
+--생성 
+
+CREATE USER FLOWER IDENTIFIED BY FLOWER; 
+
+ 
+
+--권한 
+
+GRANT CONNECT, RESOURCE TO FLOWER; 
+
+ 
+
+--계정삭제 
+
+DROP USER FLOWER CASCADE; 
+
+ 
+
+--권한 삭제 
+
+REVOKE CONNECT, RESOURCE FROM FLOWER; 
+
+
+
+-- 회원가입 
+
+create table TB_MEMBER ( 
+
+USER_NUM VARCHAR2(12) PRIMARY KEY not null,      --회원번호 
+
+USER_ID    varchar2(20) unique not null,                     --아이디 
+
+USER_PW    varchar2(20) not null,                  --비밀번호 
+
+USER_NAME   varchar2(30) not null,                  --이름 
+
+USER_PHONE   varchar2(13) not null,                  --전화번호 
+
+USER_EMAIL   varchar2(40) not null,                  --이메일 
+
+USER_ZIPCODE   varchar2(5) not null,--우편번호 
+
+USER_ADD1   varchar2(200) not null,                --주소1 
+
+USER_ADD2   varchar2(200) not null,                --주소2 
+
+AMIN_TIM   varchar2(1) default 'N',    --관리자여부 
+
+DEL_GB  varchar2(1) default 'N' 
+
+); 
+
+ 
+
+create sequence TB_MEMBER_SEQ  
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+NOCACHE; 
+
+ 
+
+ 
+
+--판매글 게시판 테이블 생성  
+
+CREATE TABLE TB_GOODS( 
+
+   GOODS_INDEX varchar2(30)  PRIMARY KEY not null,           --판매글 번호 
+
+    GOODS_TITLE varchar2(30) not null,                                            --제목 
+
+    GOODS_CONTENT varchar2(3000) not null,                                         --상품정보글 
+
+     
+
+    ORIGINAL_FILE_NAME2 VARCHAR2(260 BYTE), 
+
+    STORED_FILE_THUMB VARCHAR2(36 BYTE), 
+
+    FILE_SIZE2 NUMBER, 
+
+    UPD_DTM2 DATE DEFAULT SYSDATE, 
+
+    DEL_GB2 VARCHAR2(1 BYTE) DEFAULT 'N', 
+
+     
+
+    ORIGINAL_FILE_NAME VARCHAR2(260 BYTE), 
+
+    STORED_FILE_IMG VARCHAR2(36 BYTE), 
+
+    FILE_SIZE NUMBER, 
+
+    UPD_DTM DATE DEFAULT SYSDATE, 
+
+    DEL_GB VARCHAR2(1 BYTE) DEFAULT 'N',    
+
+    
+
+    GOODS_PRICE varchar2(30) not null,                                           --가격 
+
+    GOODS_OP1 varchar2(20) not null,                                             --옵션1 
+
+    GOODS_OP2 varchar2(200) ,                                           --옵션2 
+
+    GOODS_OP3 varchar2(200) ,                                           --옵션3 
+
+    GOODS_OP4 varchar2(200)                                       --옵션4 
+
+); 
+
+ 
+
+create sequence TB_GOODS_SEQ  
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+MINVALUE 1; 
+
+ 
+
+ 
+
+--결제 페이지 상품 리스트 테이블 생성 
+
+CREATE TABLE TB_ORDER( 
+
+ORDER_NUM   VARCHAR2(30) PRIMARY KEY, 
+
+GOODS_INDEX   VARCHAR2(30) , 
+
+BASKET_INDEX   NUMBER , 
+
+USER_NUM   VARCHAR2(12), 
+
+ORDER_NAME   varchar2(30) not null, 
+
+ORDER_PHONE   varchar2(13) not null, 
+
+ORDER_ZIPCODE   varchar2(5), 
+
+ORDER_ADD1   varchar2(200) not null, 
+
+ORDER_ADD2   varchar2(200) not null, 
+
+GOODS_TITLE   VARCHAR2(30) NOT NULL, 
+
+ORDER_PRICE   varchar2(30) not null, 
+
+ORDER_OP1   varchar2(20) not null, 
+
+ORDER_OP2   varchar2(200) , 
+
+ORDER_OP3   varchar2(200) , 
+
+ORDER_OP4   varchar2(200) , 
+
+ORDER_INFO   VARCHAR2(30), 
+
+TRANS   VARCHAR2(20) default '배송준비중' not null, 
+
+ 
+
+CONSTRAINT FK_TB_GOODS_INDEX foreign key(GOODS_INDEX) references TB_GOODS(GOODS_INDEX) 
+
+); 
+
+ 
+
+create sequence TB_ORDER_SEQ  
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+MINVALUE 1; 
+
+ 
+
+ 
+
+ 
+
+--장바구니 테이블 생성 연결 잘됨 
+
+CREATE TABLE TB_BASKET ( 
+
+    BASKET_INDEX NUMBER PRIMARY KEY not null,      --장바구니 번호 
+
+    USER_ID VARCHAR2(20),       -- 아이디  
+
+    GOODS_INDEX VARCHAR2(30),                            --판매글번호 
+
+    BASKET_TITLE VARCHAR2(30) NOT NULL,                       --제목 
+
+    BASKET_PRICE varchar2(30) not null,                              --가격 
+
+    BASKET_OP1 VARCHAR2(20) NOT NULL,                        --옵션1 
+
+    BASKET_OP2 VARCHAR2(200) ,                       --옵션2 
+
+    BASKET_OP3 VARCHAR2(200) ,                      --옵션3 
+
+    BASKET_OP4 VARCHAR2(200) ,                      --옵션4 
+
+CONSTRAINT FK_GOODS_INDEX foreign key(GOODS_INDEX) references TB_GOODS(GOODS_INDEX) 
+
+); 
+
+ 
+
+CREATE SEQUENCE TB_BASKET_SEQ 
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+MINVALUE 1; 
+
+ 
+
+ 
+
+--이벤트 게시판 테이블 생성 
+
+CREATE TABLE TB_NOTICE( 
+
+NOTICE_INDEX VARCHAR2(30)  PRIMARY KEY not null,      --이벤트 글 번호 
+
+NOTICE_TITLE VARCHAR2(300) NOT NULL ,                       --제목 
+
+NOTICE_CONTENT VARCHAR2(3000) ,                           --내용 
+
+ 
+
+ ORIGINAL_FILE_NAME3 VARCHAR2(260 BYTE), 
+
+ STORED_FILE_NOTICE VARCHAR2(36 BYTE), 
+
+ FILE_SIZE3 NUMBER, 
+
+ UPD_DTM3 DATE DEFAULT SYSDATE, 
+
+ DEL_GB3 VARCHAR2(1 BYTE) DEFAULT 'N' 
+
+); 
+
+ 
+
+create sequence TB_NOTICE_SEQ  
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+MINVALUE 1; 
+
+ 
+
+--리뷰게시판 테이블 생성 
+
+CREATE TABLE TB_REVIEW ( 
+
+REVIEW_INDEX   VARCHAR2(12) PRIMARY KEY, 
+
+USER_NUM   VARCHAR2(12)  not null, 
+
+ORDER_NUM   VARCHAR2(30)   not null, 
+
+GOODS_INDEX   VARCHAR2(30)  not null, 
+
+REVIEW_CONTENT   varchar2(3000) not null, 
+
+USER_ID   varchar2(20) not null, 
+
+REVIEW_DATE   date     default sysdate, 
+
+ 
+
+ ORIGINAL_FILE_NAME4 VARCHAR2(260 BYTE), 
+
+ STORED_FILE_REVIEW VARCHAR2(36 BYTE), 
+
+ FILE_SIZE4 NUMBER, 
+
+ UPD_DTM4 DATE DEFAULT SYSDATE, 
+
+ DEL_GB4 VARCHAR2(1 BYTE) DEFAULT 'N' 
+
+); 
+
+ 
+
+CREATE SEQUENCE REVIEW_INDEX_SEQ  
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+NOCACHE; 
+
+ 
+
+ 
+
+--리뷰 답변 
+
+CREATE TABLE TB_REVIEW_RE( 
+
+   REVIEW_INDEX   VARCHAR2(12) NOT NULL, 
+
+REVIEW_RE_CONTENT   varchar2(3000), 
+
+REVIEW_RE_DATE   date              default sysdate, 
+
+ 
+
+); 
+
+ 
+
+create sequence TB_REVIEW_RE_SEQ  
+
+START WITH 1 
+
+INCREMENT BY 1 
+
+NOMAXVALUE 
+
+MINVALUE 1; 
+
+ 
+
+ 
+
+ 
+
+--- 
+
+ALTER TABLE TB_REVIEW ADD CONSTRAINT FK_USER_NUM foreign KEY(USER_NUM) references TB_MEMBER(USER_NUM); 
+
+ALTER TABLE TB_REVIEW ADD CONSTRAINT FK_ORDER_NUM foreign KEY(ORDER_NUM) references TB_ORDER(ORDER_NUM); 
+
+ALTER TABLE TB_REVIEW ADD CONSTRAINT FK_GOODS_INDEX1 foreign KEY(GOODS_INDEX) references TB_GOODS(GOODS_INDEX); 
+
+ 
+
+ALTER TABLE TB_ORDER ADD CONSTRAINT FK_USER_NUM1 foreign KEY(USER_NUM) references TB_MEMBER(USER_NUM); 
+
+ 
+
+ALTER TABLE TB_BASKET ADD CONSTRAINT FK_USER_ID foreign KEY(USER_ID) references TB_MEMBER(USER_ID); 
