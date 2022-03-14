@@ -19,7 +19,7 @@ DB : MySQL에 새로 생기는 데이터 저장
 Front : 
 Javascript, Ajax, json, Css
 Back : 
-Java - Spring data jdbc, MVC패턴이용,  MySQL,  
+Java - Spring data jdbc- Jquery, MVC패턴이용,  MySQL,  
 
 개발기간 :  2022-02-27 ~ 2022-03-14
 
