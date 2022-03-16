@@ -21,7 +21,7 @@ Javascript, Ajax, json, Css <br>
 Back : 
 Java - Spring data jdbc- Jquery, MVC패턴이용,  oracle,  <br>
 
-개발기간 :  2022-02-27 ~ 2022-03-14<br>
+개발기간 :  2022-01-24 ~ 2022-03-14<br>
 
 기획 & 설계<br>
 흐름도, 일정, 정의서, DB테이블 명칭 제공 <br>
