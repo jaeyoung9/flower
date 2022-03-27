@@ -15,9 +15,9 @@ ERD
 주요기능과 로직: 
 -----
 + 반응형 : 헤더, 푸터, 메인, 상품리스트에 반응형 제공.
-++ 100%![1](https://user-images.githubusercontent.com/83907504/160306192-89ef3b10-95be-42fd-af48-29274ac227ab.png)
-++ 50% ![2](https://user-images.githubusercontent.com/83907504/160306196-0c781c01-8b11-4a9d-b562-d87cfb1e3438.png)
-++ 25% ![3](https://user-images.githubusercontent.com/83907504/160306200-0118f10f-bccc-4e42-84fe-0a89b5a40243.png)
+![1](https://user-images.githubusercontent.com/83907504/160306192-89ef3b10-95be-42fd-af48-29274ac227ab.png)
+![2](https://user-images.githubusercontent.com/83907504/160306196-0c781c01-8b11-4a9d-b562-d87cfb1e3438.png)
+![3](https://user-images.githubusercontent.com/83907504/160306200-0118f10f-bccc-4e42-84fe-0a89b5a40243.png)
 
 + 옵션 : 상품 등록시 옵션을 ,로 구분하고  페이지에선 드롭다운으로 표시.
 + Json : 상품리스트 제이슨 형식 제공.
