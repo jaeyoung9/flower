@@ -10,8 +10,8 @@ Idea :
 
 
 ERD
-+ <img width="700" alt="KakaoTalk_20220328_083341373" src="https://user-images.githubusercontent.com/83907504/160306010-1a2edb77-5a96-44d1-af3c-78f61b2c4756.png">
-
+<img width="700" alt="KakaoTalk_20220328_083341373" src="https://user-images.githubusercontent.com/83907504/160306010-1a2edb77-5a96-44d1-af3c-78f61b2c4756.png">
+-----
 
 주요기능과 로직: 
 + 반응형 : 헤더, 푸터, 메인, 상품리스트에 반응형 제공.
