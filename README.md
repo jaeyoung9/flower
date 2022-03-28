@@ -49,9 +49,7 @@ Back
 
 기획 & 설계
 -----
-![1](https://user-images.githubusercontent.com/83907504/160307286-9e2ee42e-85e4-4200-9b99-1efa4af47b58.png)
-![2](https://user-images.githubusercontent.com/83907504/160307289-07e3b166-6747-4a52-bcdb-a08e022f4dae.png)
-![3](https://user-images.githubusercontent.com/83907504/160307293-0b583230-ca32-41f8-bd53-5fb9cf98028b.png)
+<img width="472" alt="4" src="https://user-images.githubusercontent.com/83907504/160307328-49a5bdbe-3d0c-4e67-93f3-e8deaa7fb60d.png">
 
 
 
