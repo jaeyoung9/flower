@@ -6,6 +6,7 @@
 + 개발 언어 : java 11, javaScript, JSP, CSS
 + DB : Oracle 11g
 + WAS : Tomcat 9.0
+
 Front 
 -----
 > Javascript, Ajax, json, Css 
