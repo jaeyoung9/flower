@@ -28,7 +28,8 @@ Back
 
 Erd
 -----
-<img width="700" alt="KakaoTalk_20220328_083341373" src="https://user-images.githubusercontent.com/83907504/160306010-1a2edb77-5a96-44d1-af3c-78f61b2c4756.png">
+![GetImage (1)](https://user-images.githubusercontent.com/83907504/160504280-9a137d12-ca24-46af-97dd-1a39c2f0fd32.png)
+
 
 주요기능과 로직: 
 -----
@@ -53,10 +54,18 @@ Erd
 <img width="472" alt="4" src="https://user-images.githubusercontent.com/83907504/160307328-49a5bdbe-3d0c-4e67-93f3-e8deaa7fb60d.png">
 
 
+다이어그램
+-----
+![GetImage](https://user-images.githubusercontent.com/83907504/160504369-b0a394f5-0d72-4e9a-8316-ce72ea2504d7.png)
 
-https://jaeyoung9.github.io/flower/  접속불가;
 
 
 개발자
 -----
 > 민재영 김형태 정주영 김성법 이 솔 조영준
+
+
+
+index.html ( mata ) 불가;
+-----
+https://jaeyoung9.github.io/flower/  접속불가;
