@@ -29,25 +29,30 @@ Erd
 + Ajax : 페이지 Ajax
 + 메인 페이지 : 슬라이드 및 상품 판매 리스트 제공.
 + 페이징 기능 : 상품 페이지를 6개씩 끊어서 보여줌.
-+ 로그인, 회원가입 : 네이버 API (미구현), 로그인, 아이디중복확인 및 비밀번호 일치여부, 탈퇴회원, 아이디 비밀번호 찾기
++ 로그인, 회원가입 : 네이버 API (미구현), 로그인, 아이디중복확인 및 비밀번호 일치여부JSON방식을 이용한 DB와 입력된 ID값 중복확인, 탈퇴회원, 아이디 비밀번호 찾기
 + DB : MySQL에 새로 생기는 데이터 저장
 + 리뷰 기능 : 주문 구매후 리뷰 작성단 , 관리자 리뷰답글단,  삭제 기능 제공.
 + 장바구니 : 원하는 리스트 및 옵션 선택후 장바구니 담기, 수정, 삭제 기능 제공.
 
 
-Front : 
+Front 
 -----
 > Javascript, Ajax, json, Css 
 
-Back : 
+Back 
 -----
 > Java - Spring data jdbc- Jquery, MVC패턴이용,  oracle  
 
-개발기간 : 
+개발기간  
 -----
 > 2022-01-24 ~ 2022-03-14
 
 기획 & 설계
+-----
+![1](https://user-images.githubusercontent.com/83907504/160307286-9e2ee42e-85e4-4200-9b99-1efa4af47b58.png)
+![2](https://user-images.githubusercontent.com/83907504/160307289-07e3b166-6747-4a52-bcdb-a08e022f4dae.png)
+![3](https://user-images.githubusercontent.com/83907504/160307293-0b583230-ca32-41f8-bd53-5fb9cf98028b.png)
+
 
 
 https://jaeyoung9.github.io/flower/  접속불가;
