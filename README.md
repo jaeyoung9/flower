@@ -66,6 +66,6 @@ Erd
 
 
 
-index.html ( mata ) 불가;
+index.html / index.jsp ( mata ) 불가;
 -----
 https://jaeyoung9.github.io/flower/  접속불가;
