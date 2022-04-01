@@ -70,4 +70,4 @@ DB 설계(테이블, 제약조건)
 
 index.html / index.jsp ( mata ) 불가;
 -----
-https://jaeyoung9.github.io/flower/  접속불가;
+https://github.com/jaeyoung9/flower  접속불가;
