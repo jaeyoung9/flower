@@ -77,7 +77,7 @@ Erd
 
 ### 장바구니
 + 원하는 리스트 및 옵션 선택 후 장바구니 담기, 수정, 삭제 기능 제공.
-
+<img width="1100" alt="화면 캡처 2022-04-01 112707" src="https://user-images.githubusercontent.com/94159810/161183183-35e4b304-aca4-465c-b30e-22bfa7bf8dd3.png">
 
 개발기간  
 -----
