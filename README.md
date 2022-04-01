@@ -58,7 +58,9 @@ Erd
 -----
 ![GetImage](https://user-images.githubusercontent.com/83907504/160504369-b0a394f5-0d72-4e9a-8316-ce72ea2504d7.png)
 
-
+DB 설계(테이블, 제약조건)
+-----
+<img width="1082" alt="화면 캡처 2022-04-01 101746" src="https://user-images.githubusercontent.com/94159810/161176229-5eee4432-e77f-4a47-8f07-e9aa2949e2be.png">
 
 개발자
 -----
