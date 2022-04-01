@@ -50,6 +50,7 @@ Erd
 
 ### 메인 페이지
 + 슬라이드 및 상품 판매 리스트 제공.
+![localhost_9000_flower_main](https://user-images.githubusercontent.com/94159810/161180319-0dbd2ef9-e4df-4f9a-8a15-b6a1e228b40b.png)
 
 ### 페이징 기능
 + 상품 페이지를 6개씩 끊어서 보여줌.
