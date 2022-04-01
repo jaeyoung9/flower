@@ -25,7 +25,6 @@ Back
 > Java - Spring data jdbc- Jquery, MVC,  oracle  
 
 
-
 Erd
 -----
 ![GetImage (1)](https://user-images.githubusercontent.com/83907504/160504280-9a137d12-ca24-46af-97dd-1a39c2f0fd32.png)
@@ -43,22 +42,17 @@ Erd
 ### 옵션
 + 상품 등록 시 옵션을 ,로 구분하고  상품 상세 페이지에선 ,가 제외된 옵션을 드롭 다운으로 표시.
 
-
 ### Json
 +  상품 리스트 제이슨 형식 제공.
-
  
 ### Ajax
 + 페이지 Ajax
 
-
 ### 메인 페이지
 + 슬라이드 및 상품 판매 리스트 제공.
 
-
 ### 페이징 기능
 + 상품 페이지를 6개씩 끊어서 보여줌.
-
 
 ### 로그인, 회원가입 
 + 네이버 API (미 구현)
@@ -68,17 +62,15 @@ Erd
 +  네이버 주소api
 +  탈퇴회원
 +  아이디 비밀번호 찾기
-
+<img width="565" alt="화면 캡처 2022-04-01 104437" src="https://user-images.githubusercontent.com/94159810/161178491-70a3a18f-0ed1-437d-a361-afa155228d48.png">
 
 ### DB
 + Oracle에 새로 생기는 데이터 저장
-
 
 ### 리뷰 기능
 + 주문 구매 후 리뷰 작성
 + 관리자 리뷰 답글
 + 삭제 기능 제공.
-
 
 ### 장바구니
 + 원하는 리스트 및 옵션 선택 후 장바구니 담기, 수정, 삭제 기능 제공.
@@ -87,6 +79,7 @@ Erd
 개발기간  
 -----
 > 2022-01-24 ~ 2022-03-14
+
 
 기획 & 설계
 -----
@@ -97,9 +90,11 @@ Erd
 -----
 ![GetImage](https://user-images.githubusercontent.com/83907504/160504369-b0a394f5-0d72-4e9a-8316-ce72ea2504d7.png)
 
+
 DB 설계(테이블, 제약조건)
 -----
 <img width="1082" alt="화면 캡처 2022-04-01 101746" src="https://user-images.githubusercontent.com/94159810/161176229-5eee4432-e77f-4a47-8f07-e9aa2949e2be.png">
+
 
 개발자
 -----
