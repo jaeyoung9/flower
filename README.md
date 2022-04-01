@@ -54,7 +54,7 @@ Erd
 
 ### 페이징 기능
 + 상품 페이지를 6개씩 끊어서 보여줌.
-<img width="638" alt="화면 캡처 2022-04-01 105203" src="https://user-images.githubusercontent.com/94159810/161179933-6e4d281a-0870-4c85-acf6-1ba27d1857cd.png">
+<img width="447" alt="화면 캡처 2022-04-01 110822" src="https://user-images.githubusercontent.com/94159810/161180621-a204079a-7e80-486d-9a3d-c7773eca0254.png">
 
 ### 로그인, 회원가입 
 + 네이버 API (미 구현)
