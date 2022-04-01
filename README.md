@@ -62,7 +62,7 @@ Erd
 +  네이버 주소api
 +  탈퇴회원
 +  아이디 비밀번호 찾기
-<img width="565" alt="화면 캡처 2022-04-01 104437" src="https://user-images.githubusercontent.com/94159810/161178491-70a3a18f-0ed1-437d-a361-afa155228d48.png">
+<img width="735" alt="화면 캡처 2022-04-01 104759" src="https://user-images.githubusercontent.com/94159810/161178869-bd86ce65-fca3-4ad1-8cd1-2c83e92243d2.png">
 
 ### DB
 + Oracle에 새로 생기는 데이터 저장
