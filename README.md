@@ -41,6 +41,7 @@ Erd
 
 ### 옵션
 + 상품 등록 시 옵션을 ,로 구분하고  상품 상세 페이지에선 ,가 제외된 옵션을 드롭 다운으로 표시.
+<img width="770" alt="화면 캡처 2022-04-01 111744" src="https://user-images.githubusercontent.com/94159810/161181520-3bb15475-cdcc-43a2-becd-290706475e64.png">
 
 ### Json
 +  상품 리스트 제이슨 형식 제공.
