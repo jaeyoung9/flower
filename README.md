@@ -18,11 +18,11 @@ Idea
 
 Front 
 -----
-> Javascript, Ajax, json, Css 
+> Javascript, Ajax, Json, CSS 
 
 Back 
 -----
-> Java - Spring data jdbc- Jquery, MVC,  oracle  
+> Java - Spring data jdbc- Jquery, MVC,  Oracle  
 
 
 Erd
