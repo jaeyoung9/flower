@@ -12,12 +12,21 @@
 
 		$('.btn-grnl-submit').on('click', function() {
 
+			var REVIEW_CONTENT = $("#REVIEW_CONTENT").val()
+			var STORED_FILE_REVIEW = $("#STORED_FILE_REVIEW").val()
+			
 			var form = $('#upload');
-
 			var formData = new FormData(form[0]);
 
 			formData.append("file", $('input[name=file]')[0].files[0]);
-
+			
+			if (REVIEW_CONTENT == null || REVIEW_CONTENT == '') {
+				alert("내용을 입력하세요.");
+				return 0;
+			} else if (STORED_FILE_REVIEW == null || STORED_FILE_REVIEW == '') {
+				alert("파일을 첨부하세요.");
+				return 0;
+			} else if (confirm("작성하시겠습니까??") == true) {
 			$.ajax({
 				url : '/flower/review/userWrite',
 				type : 'POST',
@@ -30,7 +39,7 @@
 				success : function(data) {
 					
 					console.log('jQeury ajax form submit success');
-					alert("업로드완료");
+					alert("작성 완료");
 					location.href = "<c:url value='/myPage?USER_ID=${USER_ID}'/>";
 				},
 				error : function(data) {
@@ -40,7 +49,7 @@
 					console.log('jQeury ajax form submit complete');
 				}
 			});//end ajax
-
+			}
 		});
 	});
 

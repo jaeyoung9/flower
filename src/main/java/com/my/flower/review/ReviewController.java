@@ -70,6 +70,15 @@ public class ReviewController {
 		return mv;
 	}
 	
+	// 리뷰 삭제
+	@RequestMapping(value="/reviewDelete" )
+	public ModelAndView reviewDelete(CommandMap commandMap, HttpServletRequest request) throws Exception{
+	ModelAndView mv = new ModelAndView("reviewDetail");		
+	reviewService.reviewDelete(commandMap.getMap());
+			
+		return mv;
+	}
+	
 	// 관리자 답변 작성
 	@RequestMapping(value= "/reviewReWrite")
 	public ModelAndView reviewReWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {

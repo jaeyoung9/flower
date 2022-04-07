@@ -87,6 +87,12 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<Map<String, Object>> reviewDetail(Map<String, Object> map) {
 		return reviewDAO.reviewDetail(map);
 	}
+	
+	// 리뷰 삭제
+	@Override
+	public void reviewDelete(Map<String, Object> map) throws Exception {
+		reviewDAO.reviewDelete(map);
+	}
 
 	// 관리자 답변 상세
 	@Override
