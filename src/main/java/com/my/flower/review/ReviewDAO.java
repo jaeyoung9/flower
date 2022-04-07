@@ -27,6 +27,11 @@ public class ReviewDAO extends AbstractDAO {
 	public List<Map<String, Object>> reviewDetail(Map<String, Object> map){
 		return (List<Map<String, Object>>) selectList("review.reviewDetail",map);
 	}
+	
+	// 리뷰 삭제
+	public void reviewDelete(Map<String, Object> map) throws Exception {
+		delete("review.reviewDelete", map);	
+	}
 		
 	// 관리자 답변 작성
 	@SuppressWarnings("unchecked")

@@ -183,7 +183,7 @@
 						},
 						success : function(data) {
 							alert("삭제 완료");
-							location.reload();
+							history.go(-2);
 						},
 						error : function(request, status, error) {
 							alert("code:" + request.status + "\n" + "message:"

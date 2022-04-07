@@ -18,6 +18,9 @@ public interface ReviewService {
 	// 리뷰 상세
 	List<Map<String, Object>> reviewDetail(Map<String, Object> map);
 	
+	// 관리자 답변 삭제
+	void reviewDelete(Map<String, Object> map) throws Exception;
+	
 	// 관리자 답변 작성
 	void reviewReWrite(Map<String, Object> map) throws Exception;
 	
