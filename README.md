@@ -61,8 +61,7 @@ Erd
 + 상품 페이지를 6개씩 끊어서 보여줌.
 <img width="447" alt="화면 캡처 2022-04-01 110822" src="https://user-images.githubusercontent.com/94159810/161180621-a204079a-7e80-486d-9a3d-c7773eca0254.png">
 
-### 로그인, 회원가입 
-+ 네이버 API (미 구현)
+### 로그인, 회원가입
 +  로그인, 아이디 중복 확인
 +  비밀번호 일치여부 
 +  JSON방식을 이용한 DB와 입력된 ID값 중복확인
@@ -72,7 +71,7 @@ Erd
 <img width="735" alt="화면 캡처 2022-04-01 104759" src="https://user-images.githubusercontent.com/94159810/161178869-bd86ce65-fca3-4ad1-8cd1-2c83e92243d2.png">
 
 ### DB
-+ Oracle에 새로 생기는 데이터 저장
++ Oracle 11g를 설치 및 사용하여 데이터 삽입, 수정, 삭제
 
 ### 리뷰 기능
 + 주문 구매 후 리뷰 작성
